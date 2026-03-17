@@ -90,3 +90,4 @@ size_flags_horizontal = 2
 size_flags_vertical = 6
 
 [connection signal="pressed" from="VBoxContainer/play-btn" to="." method="_on_playbtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit-btn" to="." method="_on_quitbtn_pressed"]
