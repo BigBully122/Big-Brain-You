@@ -1,31 +1,31 @@
-[gd_scene load_steps=52 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=52 format=4 uid="uid://cwnreauulgbfo"]
 
-[ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_ql6nh"]
-[ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_khjwv"]
-[ext_resource type="Texture2D" uid="uid://bsfhaa8b6rcgh" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Foam.png" id="3_ksgnt"]
-[ext_resource type="Texture2D" uid="uid://d3jccdv00qlcu" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color3.png" id="4_xvjcl"]
-[ext_resource type="Texture2D" uid="uid://c43ekcsagctth" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color2.png" id="5_lqjjf"]
-[ext_resource type="Texture2D" uid="uid://b7ef6oratnvm3" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree3.png" id="6_q76hm"]
-[ext_resource type="Texture2D" uid="uid://csnyc1efn2f8r" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree4.png" id="7_4km7b"]
-[ext_resource type="Texture2D" uid="uid://3xy6ewus6gad" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe1.png" id="8_fjbh0"]
-[ext_resource type="Texture2D" uid="uid://cl3v1ip6ga1ec" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe2.png" id="9_nwbbw"]
-[ext_resource type="Texture2D" uid="uid://dcqstyxrrlq1s" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe3.png" id="10_6318q"]
-[ext_resource type="Texture2D" uid="uid://b8ecentyxb0oq" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe4.png" id="11_dti32"]
-[ext_resource type="Texture2D" uid="uid://dvndokdyiar5i" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_01.png" id="12_yoeqf"]
-[ext_resource type="Texture2D" uid="uid://bmcydq366u40w" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_02.png" id="13_r5jbr"]
-[ext_resource type="Texture2D" uid="uid://bwapjtux0t5hi" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_03.png" id="14_aarlh"]
-[ext_resource type="Texture2D" uid="uid://b4182506d6sdw" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_04.png" id="15_4opby"]
-[ext_resource type="Texture2D" uid="uid://dbkesopel0eli" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rubber Duck/Rubber duck.png" id="16_wkskc"]
-[ext_resource type="Texture2D" uid="uid://mr0vgidwaf6i" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock1.png" id="17_8v0j2"]
-[ext_resource type="Texture2D" uid="uid://b7r5hpx7tthm5" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock2.png" id="18_1x2lu"]
-[ext_resource type="Texture2D" uid="uid://csfxbac6mm1f2" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock3.png" id="19_4hqgc"]
-[ext_resource type="Texture2D" uid="uid://d3scmvtfeumyo" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock4.png" id="20_njhy3"]
-[ext_resource type="Texture2D" uid="uid://wbwsyxmx1rut" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree1.png" id="21_hba1i"]
-[ext_resource type="Texture2D" uid="uid://b33dxgsrp1opx" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree2.png" id="22_ho8d8"]
-[ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="30_4opby"]
+[ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
+[ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_6v63q"]
+[ext_resource type="Texture2D" uid="uid://bsfhaa8b6rcgh" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Foam.png" id="3_dp5i5"]
+[ext_resource type="Texture2D" uid="uid://d3jccdv00qlcu" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color3.png" id="4_ctyrd"]
+[ext_resource type="Texture2D" uid="uid://c43ekcsagctth" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color2.png" id="5_s852u"]
+[ext_resource type="Texture2D" uid="uid://b7ef6oratnvm3" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree3.png" id="6_1ar42"]
+[ext_resource type="Texture2D" uid="uid://csnyc1efn2f8r" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree4.png" id="7_obcf2"]
+[ext_resource type="Texture2D" uid="uid://3xy6ewus6gad" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe1.png" id="8_qr166"]
+[ext_resource type="Texture2D" uid="uid://cl3v1ip6ga1ec" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe2.png" id="9_d02qd"]
+[ext_resource type="Texture2D" uid="uid://dcqstyxrrlq1s" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe3.png" id="10_ekp64"]
+[ext_resource type="Texture2D" uid="uid://b8ecentyxb0oq" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Bushes/Bushe4.png" id="11_6cehr"]
+[ext_resource type="Texture2D" uid="uid://dvndokdyiar5i" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_01.png" id="12_arhf3"]
+[ext_resource type="Texture2D" uid="uid://bmcydq366u40w" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_02.png" id="13_l2nrs"]
+[ext_resource type="Texture2D" uid="uid://bwapjtux0t5hi" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_03.png" id="14_aackp"]
+[ext_resource type="Texture2D" uid="uid://b4182506d6sdw" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks in the Water/Water Rocks_04.png" id="15_6gf3w"]
+[ext_resource type="Texture2D" uid="uid://dbkesopel0eli" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rubber Duck/Rubber duck.png" id="16_ec3r2"]
+[ext_resource type="Texture2D" uid="uid://mr0vgidwaf6i" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock1.png" id="17_upqqr"]
+[ext_resource type="Texture2D" uid="uid://b7r5hpx7tthm5" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock2.png" id="18_k7g67"]
+[ext_resource type="Texture2D" uid="uid://csfxbac6mm1f2" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock3.png" id="19_fcao4"]
+[ext_resource type="Texture2D" uid="uid://d3scmvtfeumyo" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Rocks/Rock4.png" id="20_nxklj"]
+[ext_resource type="Texture2D" uid="uid://wbwsyxmx1rut" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree1.png" id="21_4cwwd"]
+[ext_resource type="Texture2D" uid="uid://b33dxgsrp1opx" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree2.png" id="22_2gp8p"]
+[ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="23_nkm4l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
-texture = ExtResource("1_ql6nh")
+texture = ExtResource("1_t0qhy")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
@@ -34,7 +34,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_f56u8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yif3a"]
-texture = ExtResource("2_khjwv")
+texture = ExtResource("2_6v63q")
 texture_region_size = Vector2i(192, 192)
 0:0/0 = 0
 
@@ -43,7 +43,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_yif3a")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8egj"]
-texture = ExtResource("3_ksgnt")
+texture = ExtResource("3_dp5i5")
 texture_region_size = Vector2i(192, 192)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -70,7 +70,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_r8egj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfawb"]
-texture = ExtResource("4_xvjcl")
+texture = ExtResource("4_ctyrd")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -196,7 +196,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_sfawb")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m4dut"]
-texture = ExtResource("5_lqjjf")
+texture = ExtResource("5_s852u")
 texture_region_size = Vector2i(64, 64)
 5:0/0 = 0
 5:0/0/terrain_set = 0
@@ -325,7 +325,7 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_m4dut")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvcrj"]
-texture = ExtResource("6_q76hm")
+texture = ExtResource("6_1ar42")
 texture_region_size = Vector2i(192, 192)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -342,7 +342,7 @@ texture_region_size = Vector2i(192, 192)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.8, -4.8, 11.2, -5.6, 9.6, 11.2, -8, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nd3v1"]
-texture = ExtResource("7_4km7b")
+texture = ExtResource("7_obcf2")
 texture_region_size = Vector2i(192, 192)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -359,7 +359,7 @@ texture_region_size = Vector2i(192, 192)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4.8, 4.8, -4.8, 7.2, 8.8, -4.8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8e7p"]
-texture = ExtResource("8_fjbh0")
+texture = ExtResource("8_qr166")
 texture_region_size = Vector2i(128, 128)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -375,7 +375,7 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/y_sort_origin = 6
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cys0u"]
-texture = ExtResource("9_nwbbw")
+texture = ExtResource("9_d02qd")
 texture_region_size = Vector2i(128, 128)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -391,7 +391,7 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/y_sort_origin = 5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nguy2"]
-texture = ExtResource("10_6318q")
+texture = ExtResource("10_ekp64")
 texture_region_size = Vector2i(128, 128)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -408,7 +408,7 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/y_sort_origin = 7
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6i260"]
-texture = ExtResource("11_dti32")
+texture = ExtResource("11_6cehr")
 texture_region_size = Vector2i(128, 128)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -424,7 +424,7 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/y_sort_origin = 6
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwlom"]
-texture = ExtResource("12_yoeqf")
+texture = ExtResource("12_arhf3")
 texture_region_size = Vector2i(64, 64)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -447,7 +447,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aa8nb"]
-texture = ExtResource("13_r5jbr")
+texture = ExtResource("13_l2nrs")
 texture_region_size = Vector2i(64, 64)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -470,7 +470,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xpv6"]
-texture = ExtResource("14_aarlh")
+texture = ExtResource("14_aackp")
 texture_region_size = Vector2i(64, 64)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -493,7 +493,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ij338"]
-texture = ExtResource("15_4opby")
+texture = ExtResource("15_6gf3w")
 texture_region_size = Vector2i(64, 64)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -516,7 +516,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76j3i"]
-texture = ExtResource("16_wkskc")
+texture = ExtResource("16_ec3r2")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
@@ -525,33 +525,33 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/texture_origin = Vector2i(0, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8juct"]
-texture = ExtResource("17_8v0j2")
+texture = ExtResource("17_upqqr")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_au3b7"]
-texture = ExtResource("18_1x2lu")
+texture = ExtResource("18_k7g67")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 13)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.6, -4.8, 16, -6.4, 16, 4, -13.6, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jy1k"]
-texture = ExtResource("19_4hqgc")
+texture = ExtResource("19_fcao4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b80sd"]
-texture = ExtResource("20_njhy3")
+texture = ExtResource("20_nxklj")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4, 16, -4.8, 16, 2.4, -16, 2.4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2suk3"]
-texture = ExtResource("21_hba1i")
+texture = ExtResource("21_4cwwd")
 texture_region_size = Vector2i(192, 256)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -568,7 +568,7 @@ texture_region_size = Vector2i(192, 256)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.8, -4.8, 11.2, -5.6, 11.2, 10.4, -8, 10.4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjblt"]
-texture = ExtResource("22_ho8d8")
+texture = ExtResource("22_2gp8p")
 texture_region_size = Vector2i(192, 256)
 0:0/animation_speed = 8.0
 0:0/animation_mode = 1
@@ -646,4 +646,4 @@ tile_set = SubResource("TileSet_10j3w")
 [node name="Monastery" type="Sprite2D" parent="."]
 z_index = 5
 position = Vector2(462, 327)
-texture = ExtResource("30_4opby")
+texture = ExtResource("23_nkm4l")
