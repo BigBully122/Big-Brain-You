@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cwnreauulgbfo"]
+[gd_scene load_steps=54 format=4 uid="uid://cwnreauulgbfo"]
 
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_6v63q"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://wbwsyxmx1rut" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree1.png" id="21_4cwwd"]
 [ext_resource type="Texture2D" uid="uid://b33dxgsrp1opx" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree2.png" id="22_2gp8p"]
 [ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="23_nkm4l"]
+[ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://player_game_play.tscn" id="24_6v63q"]
+[ext_resource type="PackedScene" uid="uid://bhlkyd3jmye7h" path="res://scenes/player.tscn" id="25_dp5i5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
 texture = ExtResource("1_t0qhy")
@@ -647,3 +649,11 @@ tile_set = SubResource("TileSet_10j3w")
 z_index = 5
 position = Vector2(462, 327)
 texture = ExtResource("23_nkm4l")
+
+[node name="player_game_play" parent="." instance=ExtResource("24_6v63q")]
+z_index = 5
+position = Vector2(462, 563)
+
+[node name="player" parent="." instance=ExtResource("25_dp5i5")]
+z_index = 5
+position = Vector2(586, 589)
