@@ -141,6 +141,7 @@ radius = 18.0
 height = 62.0
 
 [node name="player_game_play" type="CharacterBody2D"]
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_5klal")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
