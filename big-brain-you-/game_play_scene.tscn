@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=88 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_ql6nh"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_khjwv"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://dhv7d3ne42n0i" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_01.png" id="23_dti32"]
 [ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://player_game_play.tscn" id="24_khjwv"]
 [ext_resource type="Texture2D" uid="uid://c7rklldqmqtme" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_02.png" id="24_yoeqf"]
-[ext_resource type="PackedScene" uid="uid://bhlkyd3jmye7h" path="res://scenes/player.tscn" id="25_ksgnt"]
 [ext_resource type="Texture2D" uid="uid://blnf3hkoqq46" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_03.png" id="25_r5jbr"]
 [ext_resource type="Texture2D" uid="uid://df8si2x62tk3s" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_04.png" id="26_aarlh"]
 [ext_resource type="Texture2D" uid="uid://kssy8xjsx0w7" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_05.png" id="27_4opby"]
@@ -33,6 +32,15 @@
 [ext_resource type="Texture2D" uid="uid://bq367ltp3r4x1" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_07.png" id="29_8v0j2"]
 [ext_resource type="Texture2D" uid="uid://ca8teyuo8uaot" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_08.png" id="30_1x2lu"]
 [ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="30_4opby"]
+[ext_resource type="Texture2D" uid="uid://b3qpoka11jy5m" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Archery.png" id="31_1x2lu"]
+[ext_resource type="Texture2D" uid="uid://bycm5qme4j4f6" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Barracks.png" id="32_4hqgc"]
+[ext_resource type="Texture2D" uid="uid://cr0b5dtrkgt8a" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Castle.png" id="33_njhy3"]
+[ext_resource type="Texture2D" uid="uid://dbtedunau8hlj" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House1.png" id="34_hba1i"]
+[ext_resource type="Texture2D" uid="uid://5spbulq0v2fb" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House2.png" id="35_ho8d8"]
+[ext_resource type="Texture2D" uid="uid://bjtwliysdueyq" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House3.png" id="36_pel23"]
+[ext_resource type="Texture2D" uid="uid://cw12uh5io53bl" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Monastery.png" id="37_f56u8"]
+[ext_resource type="Texture2D" uid="uid://e8wolt7r7yhw" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="38_huoyy"]
+[ext_resource type="PackedScene" uid="uid://b38i4to88dv1s" path="res://input_box.tscn" id="41_4hqgc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
 texture = ExtResource("1_ql6nh")
@@ -665,6 +673,75 @@ sources/5 = SubResource("TileSetAtlasSource_huoyy")
 sources/6 = SubResource("TileSetAtlasSource_pc0q2")
 sources/7 = SubResource("TileSetAtlasSource_u5wch")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4sb5y"]
+texture = ExtResource("31_1x2lu")
+texture_region_size = Vector2i(192, 256)
+0:0/0 = 0
+0:0/0/y_sort_origin = 100
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 62.4, -8, 72, 107.2, 20.8, 107.2, -11.2, 104, -11.2, 100.8, 20.8, 97.6, 14.4, 72, -68.8, 72, -72, -4.8)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-81.6, 27.2, -84.8, 104, -46.4, 107.2, -46.4, 97.6, -72, 97.6, -68.8, 33.6, -68.8, 27.2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tww3"]
+texture = ExtResource("32_4hqgc")
+texture_region_size = Vector2i(192, 256)
+0:0/0 = 0
+0:0/0/y_sort_origin = 95
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-65.6, 33.6, 65.6, 36.8, 68.8, 110.4, -62.4, 110.4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10j3w"]
+texture = ExtResource("33_njhy3")
+texture_region_size = Vector2i(320, 256)
+0:0/0 = 0
+0:0/0/y_sort_origin = 100
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-132.8, 49.6, 132.8, 49.6, 139.2, 78.4, 129.6, 94.4, 97.6, 104, -91.2, 104, -123.2, 97.6, -139.2, 84.8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1j27"]
+texture = ExtResource("34_hba1i")
+texture_region_size = Vector2i(128, 192)
+0:0/0 = 0
+0:0/0/y_sort_origin = 70
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36.8, 27.2, 33.6, 30.4, 33.6, 78.4, -33.6, 75.2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxq3g"]
+texture = ExtResource("35_ho8d8")
+texture_region_size = Vector2i(128, 192)
+0:0/0 = 0
+0:0/0/y_sort_origin = 70
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.4, 20.8, 8, -1.6, 43.2, 14.4, 40, 52.8, -14.4, 81.6, -46.4, 52.8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3ljj"]
+texture = ExtResource("36_pel23")
+texture_region_size = Vector2i(128, 192)
+0:0/0 = 0
+0:0/0/y_sort_origin = 70
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-43.2, 27.2, 43.2, 27.2, 40, 78.4, -40, 75.2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eexhb"]
+texture = ExtResource("37_f56u8")
+texture_region_size = Vector2i(192, 320)
+0:0/0 = 0
+0:0/0/y_sort_origin = 140
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49.6, 81.6, 46.4, 75.2, 49.6, 155.2, -49.6, 145.6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3y6fv"]
+texture = ExtResource("38_huoyy")
+texture_region_size = Vector2i(128, 256)
+0:0/0 = 0
+0:0/0/y_sort_origin = 90
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-33.6, 52.8, -1.6, 36.8, 36.8, 52.8, 46.4, 78.4, 24, 97.6, -24, 97.6, -43.2, 78.4)
+
+[sub_resource type="TileSet" id="TileSet_4drwb"]
+tile_size = Vector2i(8, 16)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4sb5y")
+sources/1 = SubResource("TileSetAtlasSource_4tww3")
+sources/2 = SubResource("TileSetAtlasSource_10j3w")
+sources/3 = SubResource("TileSetAtlasSource_h1j27")
+sources/4 = SubResource("TileSetAtlasSource_uxq3g")
+sources/5 = SubResource("TileSetAtlasSource_m3ljj")
+sources/6 = SubResource("TileSetAtlasSource_eexhb")
+sources/7 = SubResource("TileSetAtlasSource_3y6fv")
+
 [node name="game_play_scene" type="Node2D"]
 y_sort_enabled = true
 metadata/_edit_lock_ = true
@@ -710,7 +787,14 @@ position = Vector2(490, 517)
 tile_map_data = PackedByteArray("AADy//v/AgAAAAAAAAD8//D/AgAAAAAAAAAbAO7/AgAAAAAAAAApAAUAAgAAAAAAAAALABEAAgAAAAAAAADq/xAAAAAAAAAAAAAoABMAAAAAAAAAAAApAPb/AAAAAAAAAADr//f/AAAAAAAAAAD3/xUAAAAAAAAAAAD3/w4ABQAAAAAAAAAbABcABQAAAAAAAAAMABcABQAAAAAAAAAKAOz/BQAAAAAAAAApAP7/BwAAAAAAAAAiAPD/BwAAAAAAAAANAO7/BwAAAAAAAAAEAPH/BwAAAAAAAAD3//P/BwAAAAAAAAADABAABwAAAAAAAAApAO7/AAAAAAAAAAD5/+j/AAAAAAAAAAAwABIAAAAAAAAAAADo/wUAAAAAAAAAAAAHAB8AAAAAAAAAAADm//f/AgAAAAAAAADr/wUAAgAAAAAAAADs/wUAAgAAAAAAAADm/wUAAgAAAAAAAADl/wUAAgAAAAAAAADt/wUAAwAAAAAAAADp/wYAAwAAAAAAAADl/wQAAwAAAAAAAADz//v/AwAAAAAAAAD0//r/AwAAAAAAAADt//b/AwAAAAAAAAA=")
 tile_set = SubResource("TileSet_sfawb")
 
+[node name="Buildings" type="TileMapLayer" parent="."]
+z_index = 5
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAA5ABQABgAAAAAAAAA=")
+tile_set = SubResource("TileSet_4drwb")
+
 [node name="Monastery" type="Sprite2D" parent="."]
+visible = false
 z_index = 5
 position = Vector2(462, 462)
 texture = ExtResource("30_4opby")
@@ -720,6 +804,13 @@ offset = Vector2(0, -135)
 z_index = 5
 position = Vector2(461, 518)
 
-[node name="player" parent="." instance=ExtResource("25_ksgnt")]
-z_index = 5
-position = Vector2(550, 545)
+[node name="input_box" parent="." instance=ExtResource("41_4hqgc")]
+z_index = 100
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = -20.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0

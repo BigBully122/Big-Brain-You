@@ -176,7 +176,7 @@ radius = 1.0
 height = 36.0
 
 [node name="player" type="CharacterBody2D"]
-scale = Vector2(0.65, 0.65)
+scale = Vector2(0.8, 0.8)
 motion_mode = 1
 script = ExtResource("1_onrkg")
 sfx_footsteps = ExtResource("2_i3pqv")

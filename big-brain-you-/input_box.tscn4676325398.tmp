@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b38i4to88dv1s"]
+
+[ext_resource type="Script" uid="uid://bsbwyem1co3rk" path="res://input_box.gd" id="1_ckcid"]
+[ext_resource type="FontFile" uid="uid://c46tkuh2k4mny" path="res://Fonts/PatrickHand-Regular.ttf" id="1_ldh5u"]
+
+[sub_resource type="Theme" id="Theme_ckcid"]
+LineEdit/fonts/font = ExtResource("1_ldh5u")
+
+[node name="input_box" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ckcid")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 815.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 55
+placeholder_text = "kashdkjhaskjhd"
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 811.0
+offset_bottom = 100.0
+theme = SubResource("Theme_ckcid")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Type.."
+alignment = 1
+max_length = 24
+keep_editing_on_text_submit = true
+caret_blink = true
+caret_blink_interval = 0.4
+
+[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="gui_input" from="LineEdit" to="." method="_on_line_edit_gui_input"]
