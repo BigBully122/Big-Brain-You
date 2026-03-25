@@ -1,8 +1,13 @@
 extends Control
 
-@onready var line_edit_input = $LineEdit
+@onready var line_edit_input = $HBoxContainer/LineEdit
+@onready var right_lbl = $HBoxContainer/right_lbl
+@onready var wrong_lbl = $HBoxContainer/wrong_lable
 @onready var sfx_correct = $CorrectSfx  
 @onready var sfx_wrong = $WrongSfx 
+
+var rights_ans = 0
+var wrong_ans = 0 
 
 var score = 0
 var right_color = Color(0.2,1,0.2)
@@ -37,8 +42,12 @@ func check_answer():
 		new_qwestion()
 		
 		if player_text == "yes": 
+			rights_ans += 1
+			right_lbl = str(wrong_ans)
 			flash_question_label(right_color)
 		else: 
+			wrong_ans += 1
+			wrong_lbl = str(wrong_ans)
 			flash_question_label(wrong_color)
 
 

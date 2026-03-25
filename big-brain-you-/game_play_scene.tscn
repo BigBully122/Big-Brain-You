@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=87 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_ql6nh"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_khjwv"]
@@ -31,7 +31,6 @@
 [ext_resource type="Texture2D" uid="uid://dkldeqkyncrfn" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_06.png" id="28_wkskc"]
 [ext_resource type="Texture2D" uid="uid://bq367ltp3r4x1" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_07.png" id="29_8v0j2"]
 [ext_resource type="Texture2D" uid="uid://ca8teyuo8uaot" path="res://Tiny Swords (Free Pack)/Terrain/Decorations/Clouds/Clouds_08.png" id="30_1x2lu"]
-[ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="30_4opby"]
 [ext_resource type="Texture2D" uid="uid://b3qpoka11jy5m" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Archery.png" id="31_1x2lu"]
 [ext_resource type="Texture2D" uid="uid://bycm5qme4j4f6" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Barracks.png" id="32_4hqgc"]
 [ext_resource type="Texture2D" uid="uid://cr0b5dtrkgt8a" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Castle.png" id="33_njhy3"]
@@ -793,13 +792,6 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAA5ABQABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_4drwb")
 
-[node name="Monastery" type="Sprite2D" parent="."]
-visible = false
-z_index = 5
-position = Vector2(462, 462)
-texture = ExtResource("30_4opby")
-offset = Vector2(0, -135)
-
 [node name="player_game_play" parent="." instance=ExtResource("24_khjwv")]
 z_index = 5
 position = Vector2(461, 518)
@@ -809,8 +801,11 @@ z_index = 100
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = -20.0
-grow_horizontal = 2
+anchor_bottom = 0.0
+offset_left = 1023.0
+offset_top = 2.0
+offset_right = 1023.0
+offset_bottom = 2.0
+grow_vertical = 1
 size_flags_horizontal = 4
 size_flags_vertical = 0

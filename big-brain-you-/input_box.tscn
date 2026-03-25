@@ -10,27 +10,38 @@ LineEdit/fonts/font = ExtResource("1_ldh5u")
 
 [node name="input_box" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("1_ckcid")
 
-[node name="TextEdit" type="TextEdit" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 815.0
-offset_bottom = 104.0
-theme_override_font_sizes/font_size = 55
-placeholder_text = "kashdkjhaskjhd"
-metadata/_edit_use_anchors_ = true
-
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -405.5
-offset_right = 405.5
-offset_bottom = 100.0
+offset_left = -536.5
+offset_right = 536.5
+offset_bottom = 110.0
 grow_horizontal = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="wrong_lbl" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ldh5u")
+theme_override_font_sizes/font_size = 80
+text = "67"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = SubResource("Theme_ckcid")
 theme_override_font_sizes/font_size = 50
 placeholder_text = "Type.."
@@ -40,11 +51,20 @@ keep_editing_on_text_submit = true
 caret_blink = true
 caret_blink_interval = 0.4
 
+[node name="right_lbl" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ldh5u")
+theme_override_font_sizes/font_size = 80
+text = "19"
+horizontal_alignment = 1
+
 [node name="CorrectSfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6jxos")
 
 [node name="WrongSfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_tp5l3")
 
-[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
-[connection signal="gui_input" from="LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="focus_exited" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="gui_input" from="HBoxContainer/LineEdit" to="." method="_on_line_edit_gui_input"]
