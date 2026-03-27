@@ -1282,16 +1282,17 @@ one_way_collision_margin = 0.0
 [node name="math_muliplucation_chrc" type="CharacterBody2D" parent="."]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(540, 1050)
+position = Vector2(540, 1080)
 scale = Vector2(0.8, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="math_muliplucation_chrc"]
 sprite_frames = SubResource("SpriteFrames_qqbas")
 autoplay = "default"
 frame_progress = 0.3932
+offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="math_muliplucation_chrc"]
-position = Vector2(42.5, -10)
+position = Vector2(42.5, -30)
 shape = SubResource("CapsuleShape2D_7mexl")
 one_way_collision = true
 one_way_collision_margin = 0.0
