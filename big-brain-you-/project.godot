@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Big Brain You"
-run/main_scene="uid://b3bvs2a8j2um5"
+run/main_scene="uid://b3mgb25lqt5xx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

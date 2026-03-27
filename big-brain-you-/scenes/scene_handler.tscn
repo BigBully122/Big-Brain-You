@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3mgb25lqt5xx"]
+
+[ext_resource type="Script" uid="uid://cmjmydaunf5hx" path="res://scenes/scene_handler.gd" id="1_6kaua"]
+[ext_resource type="PackedScene" uid="uid://b3bvs2a8j2um5" path="res://scenes/home_menu.tscn" id="2_tx7b0"]
+
+[node name="scene_handler" type="Node"]
+script = ExtResource("1_6kaua")
+home_manu_packed = ExtResource("2_tx7b0")
