@@ -1,75 +1,75 @@
 [gd_scene load_steps=23 format=3 uid="uid://cnof44cdvb8kf"]
 
-[ext_resource type="Script" uid="uid://dsr5t1ob14mev" path="res://player_game_play.gd" id="1_5klal"]
-[ext_resource type="Texture2D" uid="uid://ca0p8uuvjejoc" path="res://Tiny Swords (Free Pack)/Units/Blue Units/Monk/Heal.png" id="2_d56m7"]
-[ext_resource type="Texture2D" uid="uid://bswb5jhvm6p1i" path="res://Tiny Swords (Free Pack)/Units/Blue Units/Monk/Idle.png" id="3_ebr5q"]
+[ext_resource type="Script" uid="uid://dsr5t1ob14mev" path="res://scripts/player_game_play.gd" id="1_cgtvn"]
+[ext_resource type="Texture2D" uid="uid://ca0p8uuvjejoc" path="res://Tiny Swords (Free Pack)/Units/Blue Units/Monk/Heal.png" id="2_kelw4"]
+[ext_resource type="Texture2D" uid="uid://bswb5jhvm6p1i" path="res://Tiny Swords (Free Pack)/Units/Blue Units/Monk/Idle.png" id="3_72v00"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7sks"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvym6"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iow31"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2gsi"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j86rj"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uolr2"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ph01o"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(1152, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pi4ny"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(1344, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6miao"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(1536, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5eu2m"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(1728, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqama"]
-atlas = ExtResource("2_d56m7")
+atlas = ExtResource("2_kelw4")
 region = Rect2(1920, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_votgc"]
-atlas = ExtResource("3_ebr5q")
+atlas = ExtResource("3_72v00")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h87c8"]
-atlas = ExtResource("3_ebr5q")
+atlas = ExtResource("3_72v00")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ev0ig"]
-atlas = ExtResource("3_ebr5q")
+atlas = ExtResource("3_72v00")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ia6cg"]
-atlas = ExtResource("3_ebr5q")
+atlas = ExtResource("3_72v00")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sfy73"]
-atlas = ExtResource("3_ebr5q")
+atlas = ExtResource("3_72v00")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjd5v"]
-atlas = ExtResource("3_ebr5q")
+atlas = ExtResource("3_72v00")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shrdv"]
@@ -142,7 +142,7 @@ height = 62.0
 
 [node name="player_game_play" type="CharacterBody2D"]
 scale = Vector2(0.8, 0.8)
-script = ExtResource("1_5klal")
+script = ExtResource("1_cgtvn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shrdv")
