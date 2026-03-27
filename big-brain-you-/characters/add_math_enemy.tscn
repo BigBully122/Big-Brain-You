@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://dninh3mvplaka"]
+
+[ext_resource type="Texture2D" uid="uid://brnll0d1al46j" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Run.png" id="1_r1mfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vfj3"]
+atlas = ExtResource("1_r1mfg")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luvqo"]
+atlas = ExtResource("1_r1mfg")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5mhk"]
+atlas = ExtResource("1_r1mfg")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqygx"]
+atlas = ExtResource("1_r1mfg")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i53nj"]
+atlas = ExtResource("1_r1mfg")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01p20"]
+atlas = ExtResource("1_r1mfg")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrf33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vfj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luvqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5mhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqygx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i53nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01p20")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rca3"]
+radius = 26.4764
+
+[node name="SubMathEnemy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wrf33")
+frame_progress = 0.932617
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1rca3")
