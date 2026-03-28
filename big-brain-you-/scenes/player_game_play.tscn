@@ -140,7 +140,7 @@ animations = [{
 radius = 18.0
 height = 62.0
 
-[node name="player_game_play" type="CharacterBody2D"]
+[node name="player_game_play" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_cgtvn")
 
