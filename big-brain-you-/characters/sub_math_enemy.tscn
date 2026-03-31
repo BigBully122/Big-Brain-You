@@ -61,6 +61,8 @@ radius = 26.4764
 sprite_frames = SubResource("SpriteFrames_yrdpf")
 animation = &"run"
 frame_progress = 0.837368
+offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -21)
 shape = SubResource("CircleShape2D_1rca3")

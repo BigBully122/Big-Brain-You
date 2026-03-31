@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dninh3mvplaka"]
+[gd_scene load_steps=25 format=3 uid="uid://dninh3mvplaka"]
 
 [ext_resource type="Script" uid="uid://cgb0jdomr0d6q" path="res://scripts/add_math_enemy.gd" id="1_8vfj3"]
 [ext_resource type="Texture2D" uid="uid://brnll0d1al46j" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Run.png" id="1_r1mfg"]
 [ext_resource type="Texture2D" uid="uid://b5dsa46624epo" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Attack1.png" id="2_h5mhk"]
 [ext_resource type="Texture2D" uid="uid://bvf0poe34ipx0" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Idle.png" id="3_jqygx"]
-[ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="5_jqygx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrf33"]
 atlas = ExtResource("2_h5mhk")
@@ -159,16 +158,8 @@ script = ExtResource("1_8vfj3")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_wrf33")
-animation = &"enemy_Run"
-frame_progress = 0.310145
-offset = Vector2(0, -30)
+animation = &"enemy_Attack"
+frame_progress = 0.614393
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_1rca3")
-
-[node name="death" parent="." instance=ExtResource("5_jqygx")]
-visible = false
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1, -21)

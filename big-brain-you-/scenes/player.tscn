@@ -185,7 +185,7 @@ sfx_footsteps = ExtResource("2_i3pqv")
 unique_name_in_owner = true
 position = Vector2(0, -34)
 sprite_frames = SubResource("SpriteFrames_dt7fs")
-animation = &"player_casting_spel"
+animation = &"player_Run"
 autoplay = "player_casting_spel"
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]

@@ -1,63 +1,104 @@
 extends CharacterBody2D
 
 enum State {
-	IDLE, 
-	CHASE, 
-	ATTACK, 
-	DEAD
-	}
+	IDLE,
+	CHASE,
+	ATTACK
+}
 
 @export_category("Stats")
-@export var speed:int = 10 
-@export var attack_damage: int = 10 
-@export var attack_speed:int = 1.0 
-@export var attack_range: int = 80 
+@export var speed: float = 350
+@export var attack_damage: int = 10
+@export var attack_times: int = 1
+@export var attack_range: float = 40
+@export var attack_cooldown: float = 5
 
 @export_category("Related Scenes")
 @export var death_packed: PackedScene
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
-var state: State = State.CHASE
 
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
+@onready var sprite: AnimatedSprite2D = %sprite   # 🔥 Viktigt
+
+var state: State = State.CHASE
+var direction: Vector2
+var is_attacking: bool = false
 
 func _ready() -> void:
-	#animation_tree.set_active(true)
-	pass
-	
+	sprite.animation = "enemy_Run"
+	sprite.play()
+
+func _physics_process(delta: float) -> void:
+	match state:
+		State.CHASE:
+			move_towards_player()
+			if distance_to_player() <= attack_range and not is_attacking:
+				state = State.ATTACK
+				start_attack()
+			
+			if sprite.animation != "enemy_Run":
+				sprite.animation = "enemy_Run"
+				sprite.play()
+
+		State.IDLE:
+			velocity = velocity.move_toward(Vector2.ZERO, speed)
+			if sprite.animation != "enemy_Idle":
+				sprite.animation = "enemy_Idle"
+				sprite.play()
+
+		State.ATTACK:
+			if sprite.animation != "enemy_Attack":
+				sprite.animation = "enemy_Attack"
+				sprite.play()
+
+	move_and_slide()
 
 
-func _physics_process(delta: float) -> void: 
-	if state == State.DEAD: 
-		return 
-	if state == State.ATTACK: 
-		return
-	
-	if distance_to_player() <= attack_range: 
-		state = State.ATTACK
-		attack()
-	elif state != State.CHASE:  
-		state = State.CHASE
+func move_towards_player():
+	direction = (player.global_position - global_position).normalized()
+
+	if direction.x > 0:
+		sprite.flip_h = false
+	elif direction.x < 0:
+		sprite.flip_h = true
+
+	velocity = direction * speed
+
+	state = State.CHASE
 
 
-func distance_to_player(): 
-	return global_position.direction_to(player.global_position)
+func distance_to_player() -> float:
+	return global_position.distance_to(player.global_position)
 
 
-func move():
-	pass
-	
+func start_attack():
+	is_attacking = true
+	velocity = Vector2.ZERO
 
-func attack(): 
-	var player_pos: Vector2 = player.global_position
-	var attack_dir: Vector2 = (player_pos - global_position).normalized()
-	# flip the animated sprite 2d named sprite 
-	
-	await get_tree().create_timer(attack_speed).timeout
+	state = State.ATTACK
+
+	attack_sequence()
+
+
+func attack_sequence():
+	# Vänta tills attacken "går av"
+	await get_tree().create_timer(attack_times).timeout
+
+	# → IDLE
 	state = State.IDLE
+	sprite.animation = "enemy_Idle"
+	sprite.play()
 
+	# Cooldown
+	await get_tree().create_timer(attack_cooldown).timeout
+
+	# Tillbaka till CHASE
+	state = State.CHASE
+
+	is_attacking = false
 
 
 func death():
 	var death_scene: Node2D = death_packed.instantiate()
-	death_scene.position = global_position + Vector2(0.0, -32.0)
+	death_scene.position = global_position + Vector2(0, -32)
 	%Effects.add_child(death_scene)
 	queue_free()

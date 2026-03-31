@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=55 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_6v63q"]
@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://wbwsyxmx1rut" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree1.png" id="21_4cwwd"]
 [ext_resource type="Texture2D" uid="uid://b33dxgsrp1opx" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree2.png" id="22_2gp8p"]
 [ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="23_nkm4l"]
+[ext_resource type="PackedScene" uid="uid://dninh3mvplaka" path="res://characters/add_math_enemy.tscn" id="24_dp5i5"]
+[ext_resource type="PackedScene" uid="uid://bhlkyd3jmye7h" path="res://scenes/player.tscn" id="25_ctyrd"]
+[ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://scenes/player_game_play.tscn" id="26_ctyrd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
 texture = ExtResource("1_t0qhy")
@@ -339,7 +342,6 @@ texture_region_size = Vector2i(192, 192)
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 62)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.8, -4.8, 11.2, -5.6, 9.6, 11.2, -8, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nd3v1"]
 texture = ExtResource("7_obcf2")
@@ -356,7 +358,6 @@ texture_region_size = Vector2i(192, 192)
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 62)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4.8, 4.8, -4.8, 7.2, 8.8, -4.8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8e7p"]
 texture = ExtResource("8_qr166")
@@ -535,7 +536,6 @@ texture = ExtResource("18_k7g67")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 13)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.6, -4.8, 16, -6.4, 16, 4, -13.6, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jy1k"]
 texture = ExtResource("19_fcao4")
@@ -548,7 +548,6 @@ texture = ExtResource("20_nxklj")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4, 16, -4.8, 16, 2.4, -16, 2.4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2suk3"]
 texture = ExtResource("21_4cwwd")
@@ -565,7 +564,6 @@ texture_region_size = Vector2i(192, 256)
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 96)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.8, -4.8, 11.2, -5.6, 11.2, 10.4, -8, 10.4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjblt"]
 texture = ExtResource("22_2gp8p")
@@ -582,7 +580,6 @@ texture_region_size = Vector2i(192, 256)
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 102)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.8, -4.8, 11.2, -5.6, 9.6, 11.2, -8, 12)
 
 [sub_resource type="TileSet" id="TileSet_10j3w"]
 tile_size = Vector2i(32, 32)
@@ -607,6 +604,7 @@ sources/19 = SubResource("TileSetAtlasSource_ij338")
 sources/20 = SubResource("TileSetAtlasSource_76j3i")
 
 [node name="game_play_scene" type="Node2D"]
+y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Water" type="TileMapLayer" parent="."]
@@ -650,3 +648,15 @@ texture = ExtResource("23_nkm4l")
 
 [node name="Effects" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="SubMathEnemy" parent="." instance=ExtResource("24_dp5i5")]
+z_index = 5
+position = Vector2(2492, 612)
+
+[node name="player" parent="." instance=ExtResource("25_ctyrd")]
+z_index = 5
+position = Vector2(1137, 602)
+
+[node name="player_game_play" parent="." instance=ExtResource("26_ctyrd")]
+z_index = 5
+position = Vector2(493, 672)
