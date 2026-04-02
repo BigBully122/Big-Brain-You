@@ -28,6 +28,11 @@ window/size/viewport_height=1080
 
 player=""
 
+[gui]
+
+theme/custom="uid://b8e86kcwqpc2o"
+theme/custom_font="uid://rxgdbi7p0iy7"
+
 [input]
 
 move_up={
