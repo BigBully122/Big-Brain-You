@@ -12,6 +12,7 @@ enum State {
 @export var attack_times: int = 1
 @export var attack_range: float = 40
 @export var attack_cooldown: float = 5
+var attack_frame: Array = [2]
 
 @export_category("Related Scenes")
 @export var death_packed: PackedScene
@@ -102,3 +103,16 @@ func death():
 	death_scene.position = global_position + Vector2(0, -32)
 	%Effects.add_child(death_scene)
 	queue_free()
+
+
+func _on_sprite_animation_changed() -> void:
+	if sprite.animation == "enemy_Attack": 
+		print("animation active")
+		Global.player_health -= 10
+		#The code below does not work!!
+		if sprite.frame in attack_frame: 
+			Global.player_health -= 10
+			print("Attack")
+			pass
+		
+	

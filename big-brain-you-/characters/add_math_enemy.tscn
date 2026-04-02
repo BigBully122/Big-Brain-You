@@ -159,8 +159,7 @@ script = ExtResource("1_8vfj3")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_wrf33")
-animation = &"enemy_Run"
-frame_progress = 0.310145
+animation = &"enemy_Attack"
 offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -172,3 +171,5 @@ visible = false
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1, -21)
+
+[connection signal="animation_changed" from="sprite" to="." method="_on_sprite_animation_changed"]

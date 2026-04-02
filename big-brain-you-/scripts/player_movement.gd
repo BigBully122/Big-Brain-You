@@ -37,7 +37,10 @@ func load_sfx(sfx_to_load):
 
 
 func _on_sprite_frame_changed() -> void:
-	if %sprite.animation == "player_Idle": return
+	if %sprite.animation == "player_Idle": 
+		return
+	
 	load_sfx(sfx_footsteps)
 	
-	if %sprite.frame in footstep_frames: %sfx_player.play()
+	if %sprite.frame in footstep_frames: 
+		%sfx_player.play()

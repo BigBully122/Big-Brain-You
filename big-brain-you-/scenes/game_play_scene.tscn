@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=56 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_6v63q"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dninh3mvplaka" path="res://characters/add_math_enemy.tscn" id="24_dp5i5"]
 [ext_resource type="PackedScene" uid="uid://bhlkyd3jmye7h" path="res://scenes/player.tscn" id="25_ctyrd"]
 [ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://scenes/player_game_play.tscn" id="26_ctyrd"]
+[ext_resource type="PackedScene" uid="uid://b38i4to88dv1s" path="res://scenes/input_box.tscn" id="27_s852u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
 texture = ExtResource("1_t0qhy")
@@ -660,3 +661,10 @@ position = Vector2(1137, 602)
 [node name="player_game_play" parent="." instance=ExtResource("26_ctyrd")]
 z_index = 5
 position = Vector2(493, 672)
+
+[node name="input_box" parent="." instance=ExtResource("27_s852u")]
+z_index = 5
+offset_left = 976.0
+offset_top = 130.0
+offset_right = 976.0
+offset_bottom = 130.0
