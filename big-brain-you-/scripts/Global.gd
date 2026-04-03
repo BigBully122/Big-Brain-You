@@ -1,5 +1,11 @@
 extends Node
 
+var difficulty = 1
+
+signal difficulty_increased(new_difficulty)
+
+
+
 var player_health: float = 100
 var old_health: float
 

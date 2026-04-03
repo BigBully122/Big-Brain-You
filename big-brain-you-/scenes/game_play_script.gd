@@ -6,6 +6,7 @@ extends Node2D
 @onready var enemy_container = $TypingEnemyContainer
 @onready var enemy_spawn_container = $EnemySpawnContainer
 var typing_enemy = preload("res://characters/typing_enemy.tscn")
+var difficculty: int = 1 
 
 
 var active_enemy = null 
@@ -60,3 +61,13 @@ func spawn_enemy():
 	var index = randi() % spawns.size()
 	enemy_container.add_child(enemy_instance)
 	enemy_instance.global_position = spawns[index].global_position
+
+
+func _on_difficulty_timer_timeout() -> void:
+	difficculty += 1 
+	var time_diff_a = 3
+	var time_diff_k = 0.02
+	var time_diff_min = 2
+	Global.emit_signal("difficulty_increased", difficculty) 
+	Global.difficulty = difficculty
+	spawn_timer.wait_time = time_diff_a * exp(-time_diff_k*difficculty) + time_diff_min

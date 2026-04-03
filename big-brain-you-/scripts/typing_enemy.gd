@@ -7,7 +7,7 @@ enum State {
 }
 
 @export_category("Stats")
-@export var speed: float = 350
+var speed: float
 @export var attack_damage: int = 10
 @export var attack_times: int = 1
 @export var attack_range: float = 100
@@ -29,6 +29,10 @@ func _ready() -> void:
 	sprite.play()
 	prompt_text = PrompList.get_prompt()
 	prompt.parse_bbcode(set_center_tags(prompt_text))
+	
+	Global.difficulty_increased.connect(handle_difficulty_increase)
+	
+	handle_difficulty_increase(Global.difficulty)
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -54,6 +58,12 @@ func _physics_process(delta: float) -> void:
 				sprite.play()
 
 	move_and_slide()
+
+func handle_difficulty_increase(new_difficulty: int): 
+	var speed_max = -200
+	var speed_a = 150 # Blir hastigheten i början (speed_max - speed_a)
+	var speed_k = 0.03
+	speed = -(speed_a * exp(-speed_k * new_difficulty) + speed_max)
 
 
 func move_towards_player():

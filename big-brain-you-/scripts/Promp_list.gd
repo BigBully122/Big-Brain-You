@@ -13,9 +13,6 @@ func _ready():
 	var words = split_to_words(cleaned)
 	classify_by_length(words)
 	all_words = short_words + medium_words + long_words 
-	print("Kort:", short_words)
-	print("Medel:", medium_words)
-	print("Lång:", long_words)
 
 func get_text_from_source():
 	#var file_path = "res://mtext.txt"
@@ -46,7 +43,7 @@ func classify_by_length(words: Array):
 	long_words.clear()
 	
 	for word in words:
-		if word.length() <= 4:
+		if word.length() <= 5:
 			short_words.append(word)
 		elif word.length() <= 7:
 			medium_words.append(word)
@@ -55,9 +52,9 @@ func classify_by_length(words: Array):
 
 
 func get_prompt() -> String: 
-	var word_index = randi() % short_words.size()
+	var word_index = randi() % all_words.size()
 	
-	var word = short_words[word_index]
+	var word = all_words[word_index]
 	
 	return word
 	
