@@ -27,6 +27,8 @@ var is_attacking: bool = false
 func _ready() -> void:
 	sprite.animation = "enemy_Run"
 	sprite.play()
+	prompt_text = PrompList.get_prompt()
+	prompt.parse_bbcode(set_center_tags(prompt_text))
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -130,14 +132,48 @@ func _on_sprite_animation_changed() -> void:
 func get_prompt() -> String: 
 	return prompt_text
 
+
+func set_next_character(next_character_index: int): 
+	var text = prompt_text
+	
+	var typed_col_text = ""
+	var character_on_col_text = ""
+	var normal_col_text = ""
+	
+	# 1. Typed text
+	if next_character_index > 0:
+		typed_col_text = get_bbcode_color_tag(typed_col) \
+		+ text.substr(0, next_character_index) \
+		+ get_bbcode_end_color_tag()
+	
+	# 2. Current character (VIKTIG FIX)
+	if next_character_index < text.length():
+		character_on_col_text = get_bbcode_color_tag(character_on_col) \
+		+ text.substr(next_character_index, 1) \
+		+ get_bbcode_end_color_tag()
+	
+	# 3. Remaining text (FIXAD LENGTH)
+	if next_character_index < text.length() - 1:
+		normal_col_text = get_bbcode_color_tag(normal_col) \
+		+ text.substr(next_character_index + 1, text.length() - next_character_index - 1) \
+		+ get_bbcode_end_color_tag()
+	
+	prompt.parse_bbcode(set_center_tags(
+		typed_col_text + character_on_col_text + normal_col_text
+	))
+
+"""
 func set_next_character(next_character_index: int): 
 	var typed_col_text = get_bbcode_color_tag(typed_col) + prompt_text.substr(0, next_character_index) + get_bbcode_end_color_tag()
 	var character_on_col_text = get_bbcode_color_tag(character_on_col) + prompt_text.substr(next_character_index, 1) + get_bbcode_end_color_tag()
 	var normal_col_text = ""
 	if next_character_index != prompt_text.length(): 
 		normal_col_text = get_bbcode_color_tag(normal_col) + prompt_text.substr(next_character_index + 1, prompt_text.length() - next_character_index +1 ) + get_bbcode_end_color_tag()
-	prompt.parse_bbcode("[center]" + typed_col_text + character_on_col_text + normal_col_text + "[/center]")
+	prompt.parse_bbcode(set_center_tags(typed_col_text + character_on_col_text + normal_col_text))
 	#Do the same CENTER thing to the lable // No not iportanand becuse it does not cange 
+"""
+func set_center_tags(string_to_center: String): 
+	return "[center]" + string_to_center + "[/center]"
 
 func get_bbcode_color_tag(color: Color) -> String: 
 	return "[color=#" + color.to_html(false) + "]"
