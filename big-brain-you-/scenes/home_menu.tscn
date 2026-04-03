@@ -40,6 +40,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -96,6 +100,14 @@ offset_bottom = 40.0
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
 layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 767.0
+offset_top = 458.0
+offset_right = 1343.0
+offset_bottom = 703.0
+text = "kjsakjhdkjhaskjhdkajhskjdhakjashkdjh"
 
 [connection signal="pressed" from="VBoxContainer/play-btn" to="." method="_on_playbtn_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit-btn" to="." method="_on_quitbtn_pressed"]

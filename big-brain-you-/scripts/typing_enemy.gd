@@ -10,8 +10,8 @@ enum State {
 @export var speed: float = 350
 @export var attack_damage: int = 10
 @export var attack_times: int = 1
-@export var attack_range: float = 40
-@export var attack_cooldown: float = 5
+@export var attack_range: float = 100
+@export var attack_cooldown: float = 2
 var attack_frame: Array = [2]
 
 @export_category("Related Scenes")
@@ -118,3 +118,17 @@ func _on_sprite_animation_changed() -> void:
 
 
 # ------------------------Spelar Input-------------------- #
+
+var active_enemy = null 
+var current_letter_inde: int = -1 
+
+func find_new_active_enemy(): 
+	%sprite.get_prompt()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and not event.is_pressed(): 
+		var typed_event = event as InputEventKey
+		var key_typed = PackedByteArray([typed_event.unicode]).get_string_from_utf8()
+		
+		if active_enemy == null: 
+			find_new_active_enemy()

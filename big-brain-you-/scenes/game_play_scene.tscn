@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=57 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_6v63q"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bhlkyd3jmye7h" path="res://scenes/player.tscn" id="25_ctyrd"]
 [ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://scenes/player_game_play.tscn" id="26_ctyrd"]
 [ext_resource type="PackedScene" uid="uid://b38i4to88dv1s" path="res://scenes/input_box.tscn" id="27_s852u"]
+[ext_resource type="PackedScene" uid="uid://1g0d2a67t8kb" path="res://characters/typing_enemy.tscn" id="28_1ar42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
 texture = ExtResource("1_t0qhy")
@@ -662,9 +663,18 @@ position = Vector2(1137, 602)
 z_index = 5
 position = Vector2(493, 672)
 
-[node name="input_box" parent="." instance=ExtResource("27_s852u")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="input_box" parent="CanvasLayer" instance=ExtResource("27_s852u")]
+
+[node name="TypingEnemy" parent="." instance=ExtResource("28_1ar42")]
 z_index = 5
-offset_left = 976.0
-offset_top = 130.0
-offset_right = 976.0
-offset_bottom = 130.0
+position = Vector2(2322, 487)

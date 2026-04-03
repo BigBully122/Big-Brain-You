@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b8e86kcwqpc2o"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b8e86kcwqpc2o"]
 
 [ext_resource type="FontFile" uid="uid://rxgdbi7p0iy7" path="res://Fonts/CaveatBrush-Regular.ttf" id="1_w73m2"]
 [ext_resource type="Texture2D" uid="uid://50e71fuih5kg" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x19.png" id="2_hekp1"]
@@ -8,7 +8,7 @@ texture = ExtResource("2_hekp1")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
-texture_margin_bottom = 10.0
+texture_margin_bottom = 6.0
 region_rect = Rect2(11, 102, 26, 19)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvdkk"]
@@ -27,12 +27,37 @@ texture_margin_right = 4.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(59, 103, 26, 18)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hekp1"]
+texture = ExtResource("2_hekp1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(59, 7, 26, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w73m2"]
+texture = ExtResource("2_hekp1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(59, 7, 26, 17)
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 80
 Button/fonts/font = ExtResource("1_w73m2")
 Button/styles/hover = SubResource("StyleBoxTexture_ckpeo")
 Button/styles/normal = SubResource("StyleBoxTexture_uvdkk")
 Button/styles/pressed = SubResource("StyleBoxTexture_ndjdi")
+Label/colors/font_color = Color(1, 1, 1, 0)
+Label/colors/font_outline_color = Color(0, 0, 0, 0)
+Label/styles/normal = SubResource("StyleBoxTexture_hekp1")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0.288518, 0.288518, 0.288518, 1)
+TextEdit/styles/normal = SubResource("StyleBoxTexture_w73m2")

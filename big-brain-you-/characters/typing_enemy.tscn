@@ -1,0 +1,187 @@
+[gd_scene load_steps=24 format=3 uid="uid://1g0d2a67t8kb"]
+
+[ext_resource type="Script" uid="uid://dot0rc6f8k8fj" path="res://scripts/typing_enemy.gd" id="1_wkp0v"]
+[ext_resource type="Texture2D" uid="uid://c445m15wswmjr" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Right_Attack.png" id="2_qfmex"]
+[ext_resource type="Texture2D" uid="uid://c1hkj0xy8sf3i" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Right_Defence.png" id="3_jrv1s"]
+[ext_resource type="Texture2D" uid="uid://ds3t3khaq5n3a" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Run.png" id="4_44vjg"]
+[ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="4_apt5m"]
+[ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="5_44vjg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcnf"]
+atlas = ExtResource("2_qfmex")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ufn1"]
+atlas = ExtResource("2_qfmex")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gutbo"]
+atlas = ExtResource("2_qfmex")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l517"]
+atlas = ExtResource("3_jrv1s")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fitp1"]
+atlas = ExtResource("3_jrv1s")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6blpm"]
+atlas = ExtResource("3_jrv1s")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5r1i"]
+atlas = ExtResource("3_jrv1s")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggqc6"]
+atlas = ExtResource("3_jrv1s")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rc65"]
+atlas = ExtResource("3_jrv1s")
+region = Rect2(1600, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axy7p"]
+atlas = ExtResource("4_44vjg")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuk7h"]
+atlas = ExtResource("4_44vjg")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qlxb"]
+atlas = ExtResource("4_44vjg")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65iq2"]
+atlas = ExtResource("4_44vjg")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10f35"]
+atlas = ExtResource("4_44vjg")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5esh"]
+atlas = ExtResource("4_44vjg")
+region = Rect2(1600, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqcnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqcnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ufn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gutbo")
+}],
+"loop": true,
+"name": &"enemy_Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l517")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fitp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6blpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5r1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggqc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rc65")
+}],
+"loop": true,
+"name": &"enemy_Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axy7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuk7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qlxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65iq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10f35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5esh")
+}],
+"loop": true,
+"name": &"enemy_Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ufn1"]
+radius = 26.4764
+
+[node name="TypingEnemy" type="CharacterBody2D"]
+script = ExtResource("1_wkp0v")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_kqcnf")
+animation = &"enemy_Run"
+frame_progress = 0.264962
+offset = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_6ufn1")
+
+[node name="death" parent="." instance=ExtResource("4_apt5m")]
+visible = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, -21)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -124.0
+offset_right = 59.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_right = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_44vjg")
+bbcode_enabled = true
+text = "Type This!!"
+scroll_active = false
+tab_size = 0
+horizontal_alignment = 1
+vertical_alignment = 1

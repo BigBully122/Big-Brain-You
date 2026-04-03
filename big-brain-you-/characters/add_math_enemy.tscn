@@ -1,26 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dninh3mvplaka"]
+[gd_scene load_steps=22 format=3 uid="uid://dninh3mvplaka"]
 
 [ext_resource type="Script" uid="uid://cgb0jdomr0d6q" path="res://scripts/add_math_enemy.gd" id="1_8vfj3"]
 [ext_resource type="Texture2D" uid="uid://brnll0d1al46j" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Run.png" id="1_r1mfg"]
-[ext_resource type="Texture2D" uid="uid://b5dsa46624epo" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Attack1.png" id="2_h5mhk"]
 [ext_resource type="Texture2D" uid="uid://bvf0poe34ipx0" path="res://Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Idle.png" id="3_jqygx"]
 [ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="5_jqygx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrf33"]
-atlas = ExtResource("2_h5mhk")
-region = Rect2(0, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_toemr"]
-atlas = ExtResource("2_h5mhk")
-region = Rect2(192, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l06yc"]
-atlas = ExtResource("2_h5mhk")
-region = Rect2(384, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gl0kk"]
-atlas = ExtResource("2_h5mhk")
-region = Rect2(576, 0, 192, 192)
+[ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="6_i53nj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_neq4o"]
 atlas = ExtResource("3_jqygx")
@@ -80,19 +64,7 @@ region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wrf33"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wrf33")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_toemr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l06yc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gl0kk")
-}],
+"frames": [],
 "loop": true,
 "name": &"enemy_Attack",
 "speed": 5.0
@@ -163,6 +135,7 @@ animation = &"enemy_Attack"
 offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_1rca3")
 
@@ -171,5 +144,37 @@ visible = false
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1, -21)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -124.0
+offset_right = 59.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_right = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_i53nj")
+bbcode_enabled = true
+text = "Type This!!"
+scroll_active = false
+tab_size = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_changed" from="sprite" to="." method="_on_sprite_animation_changed"]
