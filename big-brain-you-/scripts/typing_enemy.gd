@@ -117,8 +117,30 @@ func _on_sprite_animation_changed() -> void:
 		
 
 #----------------------------------------------------------#
+
+
+@export_category("Colors")
+@export_color_no_alpha var typed_col: Color
+@export_color_no_alpha var character_on_col: Color
+@export_color_no_alpha var normal_col: Color
+
 @onready var prompt = $Label/RichTextLabel
 @onready var prompt_text = prompt.text
 
 func get_prompt() -> String: 
 	return prompt_text
+
+func set_next_character(next_character_index: int): 
+	var typed_col_text = get_bbcode_color_tag(typed_col) + prompt_text.substr(0, next_character_index) + get_bbcode_end_color_tag()
+	var character_on_col_text = get_bbcode_color_tag(character_on_col) + prompt_text.substr(next_character_index, 1) + get_bbcode_end_color_tag()
+	var normal_col_text = ""
+	if next_character_index != prompt_text.length(): 
+		normal_col_text = get_bbcode_color_tag(normal_col) + prompt_text.substr(next_character_index + 1, prompt_text.length() - next_character_index +1 ) + get_bbcode_end_color_tag()
+	prompt.parse_bbcode("[center]" + typed_col_text + character_on_col_text + normal_col_text + "[/center]")
+	#Do the same CENTER thing to the lable // No not iportanand becuse it does not cange 
+
+func get_bbcode_color_tag(color: Color) -> String: 
+	return "[color=#" + color.to_html(false) + "]"
+
+func get_bbcode_end_color_tag() -> String: 
+	return "[/color]"

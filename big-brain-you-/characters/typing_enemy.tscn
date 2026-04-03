@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1g0d2a67t8kb"]
+[gd_scene load_steps=25 format=3 uid="uid://1g0d2a67t8kb"]
 
 [ext_resource type="Script" uid="uid://dot0rc6f8k8fj" path="res://scripts/typing_enemy.gd" id="1_wkp0v"]
 [ext_resource type="Texture2D" uid="uid://c445m15wswmjr" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Right_Attack.png" id="2_qfmex"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ds3t3khaq5n3a" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Run.png" id="4_44vjg"]
 [ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="4_apt5m"]
 [ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="5_44vjg"]
+[ext_resource type="Theme" uid="uid://bvn4forhv3ih3" path="res://enemy_overhead_lbl.tres" id="6_jrv1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqcnf"]
 atlas = ExtResource("2_qfmex")
@@ -134,7 +135,11 @@ animations = [{
 radius = 26.4764
 
 [node name="TypingEnemy" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_wkp0v")
+typed_col = Color(0, 0.560784, 1, 1)
+character_on_col = Color(0, 1, 0, 1)
+normal_col = Color(1, 0, 0, 1)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -166,6 +171,7 @@ offset_right = 59.0
 offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("6_jrv1s")
 horizontal_alignment = 1
 vertical_alignment = 1
 

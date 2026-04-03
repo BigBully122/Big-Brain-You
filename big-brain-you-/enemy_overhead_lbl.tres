@@ -1,3 +1,16 @@
-[gd_resource type="Theme" format=3 uid="uid://bvn4forhv3ih3"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bvn4forhv3ih3"]
+
+[ext_resource type="Texture2D" uid="uid://b2id3bfrft8dk" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Dialouge UI/dialog box big.png" id="1_4giu8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4wbv"]
+texture = ExtResource("1_4giu8")
+texture_margin_left = 8.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(2, 6, 173, 36)
 
 [resource]
+Label/colors/font_color = Color(1, 0, 1, 1)
+Label/colors/font_outline_color = Color(1, 0, 0, 1)
+Label/styles/normal = SubResource("StyleBoxTexture_k4wbv")
