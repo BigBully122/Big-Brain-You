@@ -1,5 +1,6 @@
 [gd_scene load_steps=57 format=4 uid="uid://cpk11onjgtrso"]
 
+[ext_resource type="Script" uid="uid://dcwxdsar1lc3o" path="res://scenes/game_play_script.gd" id="1_obcf2"]
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
 [ext_resource type="Texture2D" uid="uid://bj2rng63nhcu2" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Shadow.png" id="2_6v63q"]
 [ext_resource type="Texture2D" uid="uid://bsfhaa8b6rcgh" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Foam.png" id="3_dp5i5"]
@@ -24,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://b33dxgsrp1opx" path="res://Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree2.png" id="22_2gp8p"]
 [ext_resource type="Texture2D" uid="uid://buebaqfsdg1tq" path="res://Tiny Swords (Free Pack)/Buildings/Black Buildings/Monastery.png" id="23_nkm4l"]
 [ext_resource type="PackedScene" uid="uid://dninh3mvplaka" path="res://characters/add_math_enemy.tscn" id="24_dp5i5"]
-[ext_resource type="PackedScene" uid="uid://bhlkyd3jmye7h" path="res://scenes/player.tscn" id="25_ctyrd"]
 [ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://scenes/player_game_play.tscn" id="26_ctyrd"]
 [ext_resource type="PackedScene" uid="uid://b38i4to88dv1s" path="res://scenes/input_box.tscn" id="27_s852u"]
 [ext_resource type="PackedScene" uid="uid://1g0d2a67t8kb" path="res://characters/typing_enemy.tscn" id="28_1ar42"]
@@ -607,6 +607,7 @@ sources/20 = SubResource("TileSetAtlasSource_76j3i")
 
 [node name="game_play_scene" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_obcf2")
 metadata/_edit_lock_ = true
 
 [node name="Water" type="TileMapLayer" parent="."]
@@ -655,9 +656,11 @@ unique_name_in_owner = true
 z_index = 5
 position = Vector2(2492, 612)
 
-[node name="player" parent="." instance=ExtResource("25_ctyrd")]
+[node name="TypingEnemyContainer" type="Node2D" parent="."]
+
+[node name="TypingEnemy" parent="TypingEnemyContainer" instance=ExtResource("28_1ar42")]
 z_index = 5
-position = Vector2(1137, 602)
+position = Vector2(2322, 487)
 
 [node name="player_game_play" parent="." instance=ExtResource("26_ctyrd")]
 z_index = 5
@@ -675,6 +678,5 @@ grow_vertical = 2
 
 [node name="input_box" parent="CanvasLayer" instance=ExtResource("27_s852u")]
 
-[node name="TypingEnemy" parent="." instance=ExtResource("28_1ar42")]
-z_index = 5
-position = Vector2(2322, 487)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(910, 653)
