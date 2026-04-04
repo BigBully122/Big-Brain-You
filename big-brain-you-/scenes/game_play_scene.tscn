@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=74 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Script" uid="uid://dcwxdsar1lc3o" path="res://scenes/game_play_script.gd" id="1_obcf2"]
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
@@ -28,11 +28,14 @@
 [ext_resource type="Texture2D" uid="uid://cr0b5dtrkgt8a" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Castle.png" id="26_aackp"]
 [ext_resource type="PackedScene" uid="uid://cnof44cdvb8kf" path="res://scenes/player_game_play.tscn" id="26_ctyrd"]
 [ext_resource type="Texture2D" uid="uid://dbtedunau8hlj" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House1.png" id="27_6gf3w"]
-[ext_resource type="PackedScene" uid="uid://b38i4to88dv1s" path="res://scenes/input_box.tscn" id="27_s852u"]
 [ext_resource type="Texture2D" uid="uid://5spbulq0v2fb" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House2.png" id="28_ec3r2"]
 [ext_resource type="Texture2D" uid="uid://bjtwliysdueyq" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House3.png" id="29_upqqr"]
 [ext_resource type="Texture2D" uid="uid://cw12uh5io53bl" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Monastery.png" id="30_k7g67"]
 [ext_resource type="Texture2D" uid="uid://e8wolt7r7yhw" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="31_fcao4"]
+[ext_resource type="Script" uid="uid://b86oftclrfa14" path="res://scenes/input_box.gd" id="33_aackp"]
+[ext_resource type="Theme" uid="uid://snhrrssv0drm" path="res://score-lbl.tres" id="33_l2nrs"]
+[ext_resource type="AudioStream" uid="uid://fqpoga3dddje" path="res://sounds/jump.wav" id="34_aackp"]
+[ext_resource type="AudioStream" uid="uid://ckfvf8mdxtn1o" path="res://sounds/hurt.wav" id="35_6gf3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f56u8"]
 texture = ExtResource("1_t0qhy")
@@ -684,7 +687,7 @@ script = ExtResource("1_obcf2")
 metadata/_edit_lock_ = true
 
 [node name="difficultyTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 10.0
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -772,9 +775,10 @@ y_sort_enabled = true
 z_index = 5
 position = Vector2(343, 509)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="input_box" type="CanvasLayer" parent="."]
+script = ExtResource("33_aackp")
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="input_box"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -783,8 +787,50 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="input_box" parent="CanvasLayer" instance=ExtResource("27_s852u")]
-metadata/_edit_lock_ = true
+[node name="HBoxContainer" type="HBoxContainer" parent="input_box"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -536.0
+offset_top = 15.0
+offset_right = 537.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="wrong_lbl" type="Label" parent="input_box/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("33_l2nrs")
+text = "67"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="input_box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("33_l2nrs")
+placeholder_text = "Type.."
+alignment = 1
+max_length = 25
+keep_editing_on_text_submit = true
+caret_blink = true
+caret_blink_interval = 0.3
+
+[node name="right_lbl" type="Label" parent="input_box/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("33_l2nrs")
+text = "19"
+horizontal_alignment = 1
+
+[node name="CorrectSfx" type="AudioStreamPlayer2D" parent="input_box"]
+stream = ExtResource("34_aackp")
+
+[node name="WrongSfx" type="AudioStreamPlayer2D" parent="input_box"]
+stream = ExtResource("35_6gf3w")
 
 [connection signal="timeout" from="difficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

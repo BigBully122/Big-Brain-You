@@ -8,6 +8,9 @@ extends Node2D
 var typing_enemy = preload("res://characters/typing_enemy.tscn")
 var difficculty: int = 1 
 
+@onready var input_box = $input_box/HBoxContainer/LineEdit 
+
+
 
 var active_enemy = null 
 var current_letter_index: int = -1 
@@ -16,6 +19,9 @@ func _ready() -> void:
 	randomize()
 	spawn_timer.start()
 	spawn_enemy()
+
+func _process(delta: float) -> void:
+	handle_input_from_box()
 
 func find_new_active_enemy(typed_character: String): 
 	for enemy in enemy_container.get_children(): 
@@ -28,28 +34,35 @@ func find_new_active_enemy(typed_character: String):
 			active_enemy.set_next_character(current_letter_index)
 			return
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed(): 
-		var typed_event = event as InputEventKey
-		var key_typed = PackedByteArray([typed_event.unicode]).get_string_from_utf8()
-		if active_enemy == null: 
-			find_new_active_enemy(key_typed)
-		else: 
-			var prompt = active_enemy.get_prompt()
-			var next_character = prompt.substr(current_letter_index, 1 )
-			if key_typed == next_character: 
-				print("enemy fully typed %s" % key_typed)
-				current_letter_index += 1 
-				active_enemy.set_next_character(current_letter_index)
-				if current_letter_index == prompt.length(): 
-					print("done ")
-					current_letter_index = -1 
-					active_enemy.queue_free()
-					# PLAY DEATH ANIMATION!!!!!!!!!!
-					active_enemy = null
-			else: 
-				print("wrong typed %s insted of %s" % [key_typed, next_character])
-				
+func handle_input_from_box():
+	var text = input_box.text
+	
+	# Ingen aktiv enemy → försök hitta en
+	if active_enemy == null:
+		if text.length() > 0:
+			find_new_active_enemy(text.substr(0, 1))
+		return
+	
+	var prompt = active_enemy.get_prompt()
+	
+	# Gå igenom allt som skrivits
+	var correct_count := 0
+	
+	for i in range(min(text.length(), prompt.length())):
+		if text[i] == prompt[i]:
+			correct_count += 1
+		else:
+			break  # stoppar vid första fel
+	
+	current_letter_index = correct_count
+	active_enemy.set_next_character(current_letter_index)
+	
+	# ✅ Klar
+	if correct_count == prompt.length(): 
+		print("done")
+		active_enemy.queue_free()
+		active_enemy = null
+		current_letter_index = -1
 
 
 func _on_spawn_timer_timeout() -> void:
