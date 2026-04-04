@@ -815,6 +815,8 @@ placeholder_text = "Type.."
 alignment = 1
 max_length = 25
 keep_editing_on_text_submit = true
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
 caret_blink = true
 caret_blink_interval = 0.3
 

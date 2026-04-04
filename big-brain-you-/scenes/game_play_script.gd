@@ -37,11 +37,9 @@ func find_new_active_enemy(typed_character: String):
 			return
 
 
-
 func handle_input_from_box():
 	var text = input_box.text
 	
-	# Ingen aktiv enemy → försök hitta en
 	if active_enemy == null:
 		if text.length() > 0:
 			find_new_active_enemy(text.substr(0, 1))
@@ -49,19 +47,18 @@ func handle_input_from_box():
 	
 	var prompt = active_enemy.get_prompt()
 	
-	# Gå igenom allt som skrivits
+	
 	var correct_count := 0
 	
 	for i in range(min(text.length(), prompt.length())):
 		if text[i] == prompt[i]:
 			correct_count += 1
 		else:
-			break  # stoppar vid första fel
+			break  
 	
 	current_letter_index = correct_count
 	active_enemy.set_next_character(current_letter_index)
 	
-	# ✅ Klar
 	if correct_count == prompt.length(): 
 		ready_to_check = true
 	else: 
@@ -69,19 +66,29 @@ func handle_input_from_box():
 
 func _input(event):
 	if event.is_action_pressed("Confirm"):
+		if input_box.text.length() == 0:
+			return
 		check_answer()
 
 func check_answer(): 
+	if active_enemy == null:
+		emit_signal("answer_submited", false)
+		return
+	
 	if ready_to_check == true: 
 		print("done")
+		
 		active_enemy.queue_free()
 		active_enemy = null
 		current_letter_index = -1
+		
 		emit_signal("answer_submited", true)
 	else: 
+		active_enemy.set_next_character(0)
 		active_enemy = null
 		current_letter_index = -1
 		emit_signal("answer_submited", false)
+	
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()

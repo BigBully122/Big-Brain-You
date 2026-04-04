@@ -2,22 +2,22 @@ extends CanvasLayer
 
 @onready var line_edit_input = $HBoxContainer/LineEdit
 @onready var right_lbl = $HBoxContainer/right_lbl
-@onready var wrong_lbl = $HBoxContainer/wrong_lable
+@onready var wrong_lbl = $HBoxContainer/wrong_lbl
 @onready var sfx_correct = $CorrectSfx  
 @onready var sfx_wrong = $WrongSfx 
 
+var score = 0
 var rights_ans = 0
 var wrong_ans = 0 
 
-var score = 0
 var right_color = Color(0.2,1,0.2)
-var wrong = 0 
 var wrong_color = Color(1,0.3,0.3)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	line_edit_input.call_deferred("grab_focus")
-	
+	right_lbl.text = "0"
+	wrong_lbl.text = "0"
 
 
 func _on_line_edit_focus_exited() -> void:
@@ -25,9 +25,8 @@ func _on_line_edit_focus_exited() -> void:
 
 
 func new_qwestion(): 
-	line_edit_input.text = ""
 	line_edit_input.call_deferred("grab_focus")
-
+	line_edit_input.text = ""
 
 
 func _on_game_play_scene_answer_submited(right_or_wrong: bool) -> void:
@@ -38,12 +37,15 @@ func _on_game_play_scene_answer_submited(right_or_wrong: bool) -> void:
 		
 		if right_or_wrong: 
 			rights_ans += 1
-			right_lbl = str(wrong_ans)
+			print("Right answer: %s" % rights_ans)
+			right_lbl.text = str(rights_ans)
 			flash_question_label(right_color)
 		else: 
 			wrong_ans += 1
-			wrong_lbl = str(wrong_ans)
+			print("Worng ans: %s" % wrong_ans)
+			wrong_lbl.text = str(wrong_ans)
 			flash_question_label(wrong_color)
+	
 
 
 func flash_question_label(color): 
@@ -69,3 +71,4 @@ func flash_question_label(color):
 
 	# back to white
 	tween.tween_property(line_edit_input, "modulate", Color(1,1,1), 0.3)
+	
