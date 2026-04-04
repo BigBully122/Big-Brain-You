@@ -1,5 +1,7 @@
 extends Node2D
 
+signal answer_submited(right_or_wrong: bool)
+
 # ------------------------Spelar Input-------------------- #
 
 @onready var spawn_timer = $SpawnTimer
@@ -9,8 +11,7 @@ var typing_enemy = preload("res://characters/typing_enemy.tscn")
 var difficculty: int = 1 
 
 @onready var input_box = $input_box/HBoxContainer/LineEdit 
-
-
+var ready_to_check: bool = false
 
 var active_enemy = null 
 var current_letter_index: int = -1 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	randomize()
 	spawn_timer.start()
 	spawn_enemy()
+	answer_submited.connect(check_answer)
 
 func _process(delta: float) -> void:
 	handle_input_from_box()
@@ -33,6 +35,8 @@ func find_new_active_enemy(typed_character: String):
 			current_letter_index =  1
 			active_enemy.set_next_character(current_letter_index)
 			return
+
+
 
 func handle_input_from_box():
 	var text = input_box.text
@@ -59,11 +63,25 @@ func handle_input_from_box():
 	
 	# ✅ Klar
 	if correct_count == prompt.length(): 
+		ready_to_check = true
+	else: 
+		ready_to_check = false
+
+func _input(event):
+	if event.is_action_pressed("Confirm"):
+		check_answer()
+
+func check_answer(): 
+	if ready_to_check == true: 
 		print("done")
 		active_enemy.queue_free()
 		active_enemy = null
 		current_letter_index = -1
-
+		emit_signal("answer_submited", true)
+	else: 
+		active_enemy = null
+		current_letter_index = -1
+		emit_signal("answer_submited", false)
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()

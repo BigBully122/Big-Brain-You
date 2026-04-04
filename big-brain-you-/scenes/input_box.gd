@@ -17,31 +17,26 @@ var wrong_color = Color(1,0.3,0.3)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	line_edit_input.call_deferred("grab_focus")
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_line_edit_focus_exited() -> void:
 	line_edit_input.call_deferred("grab_focus")
+
 
 func new_qwestion(): 
 	line_edit_input.text = ""
 	line_edit_input.call_deferred("grab_focus")
 
-func _input(event):
-	if event.is_action_pressed("Confirm"):
-		check_answer()
-	
-func check_answer():
-	var player_text = line_edit_input.text
-	if player_text == "":
+
+
+func _on_game_play_scene_answer_submited(right_or_wrong: bool) -> void:
+	if line_edit_input.text == "":
 		return
 	else: 
 		new_qwestion()
 		
-		if player_text == "yes": 
+		if right_or_wrong: 
 			rights_ans += 1
 			right_lbl = str(wrong_ans)
 			flash_question_label(right_color)
@@ -49,7 +44,6 @@ func check_answer():
 			wrong_ans += 1
 			wrong_lbl = str(wrong_ans)
 			flash_question_label(wrong_color)
-
 
 
 func flash_question_label(color): 

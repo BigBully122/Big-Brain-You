@@ -832,5 +832,7 @@ stream = ExtResource("34_aackp")
 [node name="WrongSfx" type="AudioStreamPlayer2D" parent="input_box"]
 stream = ExtResource("35_6gf3w")
 
+[connection signal="answer_submited" from="." to="input_box" method="_on_game_play_scene_answer_submited"]
 [connection signal="timeout" from="difficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="text_submitted" from="input_box/HBoxContainer/LineEdit" to="input_box" method="_on_line_edit_text_submitted"]
