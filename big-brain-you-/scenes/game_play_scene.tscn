@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=75 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Script" uid="uid://dcwxdsar1lc3o" path="res://scenes/game_play_script.gd" id="1_obcf2"]
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://e8wolt7r7yhw" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="31_fcao4"]
 [ext_resource type="Script" uid="uid://b86oftclrfa14" path="res://scenes/input_box.gd" id="33_aackp"]
 [ext_resource type="Theme" uid="uid://snhrrssv0drm" path="res://score-lbl.tres" id="33_l2nrs"]
+[ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="34_6gf3w"]
 [ext_resource type="AudioStream" uid="uid://fqpoga3dddje" path="res://sounds/jump.wav" id="34_aackp"]
 [ext_resource type="AudioStream" uid="uid://ckfvf8mdxtn1o" path="res://sounds/hurt.wav" id="35_6gf3w"]
 
@@ -691,7 +692,6 @@ wait_time = 10.0
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
 
 [node name="WorldProps" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -787,6 +787,72 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
+[node name="GameOverScreen" type="PanelContainer" parent="input_box"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="input_box/GameOverScreen"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="input_box/GameOverScreen/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("34_6gf3w")
+theme_override_constants/separation = 5
+
+[node name="title_lbl" type="Label" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Game Over "
+horizontal_alignment = 1
+
+[node name="score_lbl" type="Label" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="mistakes_lbl" type="Label" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mistakes: "
+horizontal_alignment = 1
+
+[node name="best_score_lbl" type="Label" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Best Score: "
+horizontal_alignment = 1
+
+[node name="restart_btn" type="Button" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="HSeparator" type="HSeparator" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("34_6gf3w")
+theme_override_constants/separation = 0
+
+[node name="home_btn" type="Button" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return Home"
+
+[node name="HSeparator2" type="HSeparator" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="quit_btn" type="Button" parent="input_box/GameOverScreen/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="input_box"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -837,4 +903,7 @@ stream = ExtResource("35_6gf3w")
 [connection signal="answer_submited" from="." to="input_box" method="_on_game_play_scene_answer_submited"]
 [connection signal="timeout" from="difficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="text_submitted" from="input_box/HBoxContainer/LineEdit" to="input_box" method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="input_box/GameOverScreen/CenterContainer/VBoxContainer/restart_btn" to="input_box" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="input_box/GameOverScreen/CenterContainer/VBoxContainer/home_btn" to="input_box" method="_on_home_btn_pressed"]
+[connection signal="pressed" from="input_box/GameOverScreen/CenterContainer/VBoxContainer/quit_btn" to="input_box" method="_on_quit_btn_pressed"]
+[connection signal="text_changed" from="input_box/HBoxContainer/LineEdit" to="input_box" method="_on_line_edit_text_changed"]

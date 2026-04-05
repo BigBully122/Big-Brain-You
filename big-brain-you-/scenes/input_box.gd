@@ -37,12 +37,10 @@ func _on_game_play_scene_answer_submited(right_or_wrong: bool) -> void:
 		
 		if right_or_wrong: 
 			rights_ans += 1
-			print("Right answer: %s" % rights_ans)
 			right_lbl.text = str(rights_ans)
 			flash_question_label(right_color)
 		else: 
 			wrong_ans += 1
-			print("Worng ans: %s" % wrong_ans)
 			wrong_lbl.text = str(wrong_ans)
 			flash_question_label(wrong_color)
 	
@@ -72,3 +70,28 @@ func flash_question_label(color):
 	# back to white
 	tween.tween_property(line_edit_input, "modulate", Color(1,1,1), 0.3)
 	
+	
+
+func _on_restart_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game_play_scene.tscn")
+
+func _on_home_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/home_scene_map.tscn")
+
+func _on_quit_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/home_menu.tscn")
+
+
+func _on_line_edit_text_changed(new_text: String) -> void:
+	var filtered := ""
+	
+	for c in new_text:
+		if c.is_valid_int() or c.is_valid_float():
+			filtered += c
+		elif c.is_subsequence_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZåäöÅÄÖ"):
+			filtered += c
+	
+	# 🔴 Uppdatera bara om något faktiskt ändrats (viktigt)
+	if filtered != new_text:
+		line_edit_input.text = filtered
+		line_edit_input.set_caret_column(filtered.length())

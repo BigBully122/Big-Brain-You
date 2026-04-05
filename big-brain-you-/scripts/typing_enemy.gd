@@ -18,7 +18,7 @@ var attack_frame: Array = [2]
 @export var death_packed: PackedScene
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
-@onready var sprite: AnimatedSprite2D = %sprite   # 🔥 Viktigt
+@onready var sprite: AnimatedSprite2D = %sprite   
 
 var state: State = State.CHASE
 var direction: Vector2
@@ -30,7 +30,7 @@ func _ready() -> void:
 	prompt_text = PrompList.get_prompt()
 	prompt.parse_bbcode(set_center_tags(prompt_text))
 	
-	Global.difficulty_increased.connect(handle_difficulty_increase)
+	#Global.difficulty_increased.connect(handle_difficulty_increase)
 	
 	handle_difficulty_increase(Global.difficulty)
 
@@ -39,7 +39,6 @@ func _physics_process(delta: float) -> void:
 		State.CHASE:
 			move_towards_player()
 			if distance_to_player() <= attack_range and not is_attacking:
-				state = State.ATTACK
 				start_attack()
 			
 			elif sprite.animation != "enemy_Run":
@@ -57,12 +56,13 @@ func _physics_process(delta: float) -> void:
 				sprite.animation = "enemy_Attack"
 				sprite.play()
 
+
 	move_and_slide()
 
 func handle_difficulty_increase(new_difficulty: int): 
 	var speed_max = -200
-	var speed_a = 150 # Blir hastigheten i början (speed_max - speed_a)
-	var speed_k = 0.03
+	var speed_a = 180 # Blir hastigheten i början (speed_max - speed_a)
+	var speed_k = 0.02
 	speed = -(speed_a * exp(-speed_k * new_difficulty) + speed_max)
 
 
@@ -93,10 +93,9 @@ func start_attack():
 
 
 func attack_sequence():
-	# Vänta tills attacken "går av"
 	await get_tree().create_timer(attack_times).timeout
-
-	# → IDLE
+	
+	
 	state = State.IDLE
 	sprite.animation = "enemy_Idle"
 	sprite.play()
@@ -134,6 +133,7 @@ func _on_sprite_animation_changed() -> void:
 @export_category("Colors")
 @export_color_no_alpha var typed_col: Color
 @export_color_no_alpha var character_on_col: Color
+@export_color_no_alpha var left_to_type_col: Color
 @export_color_no_alpha var normal_col: Color
 
 @onready var prompt = $Label/RichTextLabel
@@ -146,9 +146,15 @@ func get_prompt() -> String:
 func set_next_character(next_character_index: int): 
 	var text = prompt_text
 	
+	if next_character_index == 0:
+		prompt.parse_bbcode(set_center_tags(
+			get_bbcode_color_tag(normal_col) + text + get_bbcode_end_color_tag()
+		))
+		return
+	
 	var typed_col_text = ""
 	var character_on_col_text = ""
-	var normal_col_text = ""
+	var left_to_type_col_text = ""
 	
 	# 1. Typed text
 	if next_character_index > 0:
@@ -164,24 +170,19 @@ func set_next_character(next_character_index: int):
 	
 	# 3. Remaining text (FIXAD LENGTH)
 	if next_character_index < text.length() - 1:
-		normal_col_text = get_bbcode_color_tag(normal_col) \
+		left_to_type_col_text = get_bbcode_color_tag(left_to_type_col) \
 		+ text.substr(next_character_index + 1, text.length() - next_character_index - 1) \
 		+ get_bbcode_end_color_tag()
 	
+	for i in range(next_character_index):
+		if i >= text.length():
+			break
+	
 	prompt.parse_bbcode(set_center_tags(
-		typed_col_text + character_on_col_text + normal_col_text
+		typed_col_text + character_on_col_text + left_to_type_col_text
 	))
 
-"""
-func set_next_character(next_character_index: int): 
-	var typed_col_text = get_bbcode_color_tag(typed_col) + prompt_text.substr(0, next_character_index) + get_bbcode_end_color_tag()
-	var character_on_col_text = get_bbcode_color_tag(character_on_col) + prompt_text.substr(next_character_index, 1) + get_bbcode_end_color_tag()
-	var normal_col_text = ""
-	if next_character_index != prompt_text.length(): 
-		normal_col_text = get_bbcode_color_tag(normal_col) + prompt_text.substr(next_character_index + 1, prompt_text.length() - next_character_index +1 ) + get_bbcode_end_color_tag()
-	prompt.parse_bbcode(set_center_tags(typed_col_text + character_on_col_text + normal_col_text))
-	#Do the same CENTER thing to the lable // No not iportanand becuse it does not cange 
-"""
+
 func set_center_tags(string_to_center: String): 
 	return "[center]" + string_to_center + "[/center]"
 

@@ -5,10 +5,11 @@ signal answer_submited(right_or_wrong: bool)
 # ------------------------Spelar Input-------------------- #
 
 @onready var spawn_timer = $SpawnTimer
+@onready var difficculty_timer = $difficultyTimer
 @onready var enemy_container = $TypingEnemyContainer
 @onready var enemy_spawn_container = $EnemySpawnContainer
 var typing_enemy = preload("res://characters/typing_enemy.tscn")
-var difficculty: int = 1 
+var difficculty: int = 0
 
 @onready var input_box = $input_box/HBoxContainer/LineEdit 
 var ready_to_check: bool = false
@@ -19,8 +20,10 @@ var current_letter_index: int = -1
 func _ready() -> void:
 	randomize()
 	spawn_timer.start()
-	spawn_enemy()
 	answer_submited.connect(check_answer)
+	_on_difficulty_timer_timeout()
+	difficculty_timer.start()
+	
 
 func _process(delta: float) -> void:
 	handle_input_from_box()
@@ -65,6 +68,10 @@ func handle_input_from_box():
 		ready_to_check = false
 
 func _input(event):
+	if input_box.text.length() == 0:
+		active_enemy = null
+		current_letter_index = -1
+
 	if event.is_action_pressed("Confirm"):
 		if input_box.text.length() == 0:
 			return
@@ -76,18 +83,14 @@ func check_answer():
 		return
 	
 	if ready_to_check == true: 
-		print("done")
-		
 		active_enemy.queue_free()
-		active_enemy = null
-		current_letter_index = -1
-		
 		emit_signal("answer_submited", true)
 	else: 
-		active_enemy.set_next_character(0)
-		active_enemy = null
-		current_letter_index = -1
 		emit_signal("answer_submited", false)
+	
+	active_enemy.set_next_character(0)
+	active_enemy = null
+	current_letter_index = -1
 	
 
 func _on_spawn_timer_timeout() -> void:
@@ -103,9 +106,10 @@ func spawn_enemy():
 
 func _on_difficulty_timer_timeout() -> void:
 	difficculty += 1 
-	var time_diff_a = 3
+	var time_diff_a = 5
 	var time_diff_k = 0.02
 	var time_diff_min = 2
-	Global.emit_signal("difficulty_increased", difficculty) 
+	#Global.emit_signal("difficulty_increased", difficculty) 
 	Global.difficulty = difficculty
 	spawn_timer.wait_time = time_diff_a * exp(-time_diff_k*difficculty) + time_diff_min
+	print(spawn_timer.wait_time)
