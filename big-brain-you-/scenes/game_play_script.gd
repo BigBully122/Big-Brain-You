@@ -1,6 +1,8 @@
 extends Node2D
 
 signal answer_submited(right_or_wrong: bool)
+signal player_health_changed(change_value)
+
 
 # ------------------------Spelar Input-------------------- #
 
@@ -8,24 +10,40 @@ signal answer_submited(right_or_wrong: bool)
 @onready var difficculty_timer = $difficultyTimer
 @onready var enemy_container = $TypingEnemyContainer
 @onready var enemy_spawn_container = $EnemySpawnContainer
+@onready var player = $player_game_play
 var typing_enemy = preload("res://characters/typing_enemy.tscn")
 var difficculty: int = 0
 
-@onready var input_box = $input_box/HBoxContainer/LineEdit 
+@onready var input_box = $input_box/game_play_ui/HBoxContainer/LineEdit
 var ready_to_check: bool = false
+
+@onready var game_play_ui = $input_box/game_play_ui
+@onready var game_over_screen = $input_box/game_over_screen
+@onready var pause_screen = $input_box/paused_screen
 
 var active_enemy = null 
 var current_letter_index: int = -1 
 
+var lockal_player_health = 100
+
 func _ready() -> void:
+	Global.player_health = 100 
 	randomize()
 	spawn_timer.start()
 	answer_submited.connect(check_answer)
 	_on_difficulty_timer_timeout()
 	difficculty_timer.start()
-	
+	player_health_changed.connect(on_player_health_changed)
+	print(Global.player_health)
 
 func _process(delta: float) -> void:
+	if (Global.player_health < 0 or Global.player_health == 0): 
+		game_over_maniger()
+	
+	var health_diffrense = lockal_player_health - Global.player_health
+	if health_diffrense: 
+		on_player_health_changed(health_diffrense)
+		lockal_player_health = Global.player_health
 	handle_input_from_box()
 
 func find_new_active_enemy(typed_character: String): 
@@ -91,7 +109,7 @@ func check_answer():
 	active_enemy.set_next_character(0)
 	active_enemy = null
 	current_letter_index = -1
-	
+
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
@@ -112,4 +130,45 @@ func _on_difficulty_timer_timeout() -> void:
 	#Global.emit_signal("difficulty_increased", difficculty) 
 	Global.difficulty = difficculty
 	spawn_timer.wait_time = time_diff_a * exp(-time_diff_k*difficculty) + time_diff_min
-	print(spawn_timer.wait_time)
+
+func on_player_health_changed(change_value): 
+	Global.player_health -= change_value
+
+	var camera = $Camera2D
+	camera.offset = Vector2.ZERO
+	
+	var magnitude = clamp(abs(change_value) * 3.0, 3.0, 20.0)
+	
+	var duration = 0.2
+	var shakes = 4
+	
+	var tween = create_tween()
+	
+	for i in range(shakes):
+		var offset = Vector2(
+			randf_range(-magnitude, magnitude),
+			randf_range(-magnitude, magnitude)
+		)
+		tween.tween_property(camera, "offset", offset, duration / (shakes * 2))
+	
+	tween.tween_property(camera, "offset", Vector2.ZERO, duration / 2)
+	
+	if change_value > 0:
+		var blink_tween = create_tween()
+		
+		blink_tween.tween_property(player, "modulate", Color(1,1,1), 0.05)
+	
+		blink_tween.tween_property(player, "modulate", Color(1,0.2,0.2), 0.1)
+		
+		blink_tween.tween_property(player, "modulate", Color(1,1,1), 0.2)
+	
+	if change_value > 0:
+		Engine.time_scale = 0.9
+		await get_tree().create_timer(0.05).timeout
+		Engine.time_scale = 1.0
+
+
+func game_over_maniger(): 
+	# puse game 
+	game_play_ui.hide()
+	game_over_screen.show()

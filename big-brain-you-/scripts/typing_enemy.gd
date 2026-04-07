@@ -10,9 +10,9 @@ enum State {
 var speed: float
 @export var attack_damage: int = 10
 @export var attack_times: int = 1
-@export var attack_range: float = 100
+@export var attack_range: float = 150
 @export var attack_cooldown: float = 2
-var attack_frame: Array = [2]
+var attack_frame: Array = [1, 2]
 
 @export_category("Related Scenes")
 @export var death_packed: PackedScene
@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 
 func handle_difficulty_increase(new_difficulty: int): 
 	var speed_max = -200
-	var speed_a = 180 # Blir hastigheten i början (speed_max - speed_a)
+	var speed_a = 10 # Blir hastigheten i början (speed_max - speed_a)
 	var speed_k = 0.02
 	speed = -(speed_a * exp(-speed_k * new_difficulty) + speed_max)
 
@@ -116,16 +116,10 @@ func death():
 	queue_free()
 
 
-func _on_sprite_animation_changed() -> void:
+func _on_sprite_frame_changed() -> void:
 	if sprite.animation == "enemy_Attack": 
-		print("animation active")
-		Global.player_health -= 10
-		#The code below does not work!!
 		if sprite.frame in attack_frame: 
-			Global.player_health -= 10
-			print("Attack")
-			pass
-		
+			Global.player_health -= 5
 
 #----------------------------------------------------------#
 

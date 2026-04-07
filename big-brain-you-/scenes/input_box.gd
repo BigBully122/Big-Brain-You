@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var line_edit_input = $HBoxContainer/LineEdit
-@onready var right_lbl = $HBoxContainer/right_lbl
-@onready var wrong_lbl = $HBoxContainer/wrong_lbl
+@onready var line_edit_input = $game_play_ui/HBoxContainer/LineEdit
+@onready var right_lbl = $game_play_ui/HBoxContainer/right_lbl
+@onready var wrong_lbl = $game_play_ui/HBoxContainer/wrong_lbl
 @onready var sfx_correct = $CorrectSfx  
 @onready var sfx_wrong = $WrongSfx 
 
@@ -22,7 +22,6 @@ func _ready() -> void:
 
 func _on_line_edit_focus_exited() -> void:
 	line_edit_input.call_deferred("grab_focus")
-
 
 func new_qwestion(): 
 	line_edit_input.call_deferred("grab_focus")
@@ -54,7 +53,7 @@ func flash_question_label(color):
 		sfx_wrong.play()
 	
 	var tween = create_tween()
-
+	
 	# green color
 	tween.tween_property(line_edit_input, "modulate", color, 0.1)
 
@@ -95,3 +94,8 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 	if filtered != new_text:
 		line_edit_input.text = filtered
 		line_edit_input.set_caret_column(filtered.length())
+
+
+func _on_button_pressed() -> void:
+	#Make pause_screen be shown 
+	pass
