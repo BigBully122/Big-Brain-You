@@ -137,6 +137,7 @@ radius = 33.0606
 [node name="TypingEnemy" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_wkp0v")
+death_packed = ExtResource("4_apt5m")
 typed_col = Color(0, 0.560784, 1, 1)
 character_on_col = Color(0, 1, 0, 1)
 left_to_type_col = Color(1, 0, 0, 1)

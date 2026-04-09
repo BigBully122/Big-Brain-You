@@ -803,6 +803,9 @@ position = Vector2(1585, 870)
 
 [node name="Effects" type="Node2D" parent="."]
 unique_name_in_owner = true
+z_index = 5
+y_sort_enabled = true
+position = Vector2(974, 480)
 
 [node name="death" parent="Effects" instance=ExtResource("32_upqqr")]
 
@@ -1021,17 +1024,6 @@ stream = ExtResource("34_aackp")
 
 [node name="WrongSfx" type="AudioStreamPlayer2D" parent="input_box"]
 stream = ExtResource("35_6gf3w")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-z_index = 6
-polygon = PackedVector2Array(-26, -135, 695, 101, 519, 499, 105, 496)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-visible = false
-z_index = 6
-position = Vector2(16, 69)
-polygon = PackedVector2Array(23, 1113, 623, 884, 874, 155, 100, 466)
 
 [connection signal="answer_submited" from="." to="input_box" method="_on_game_play_scene_answer_submited"]
 [connection signal="timeout" from="difficultyTimer" to="." method="_on_difficulty_timer_timeout"]

@@ -106,7 +106,7 @@ func check_answer():
 		return
 	
 	if ready_to_check == true: 
-		active_enemy.queue_free()
+		active_enemy.death()
 		emit_signal("answer_submited", true)
 	else: 
 		emit_signal("answer_submited", false)
