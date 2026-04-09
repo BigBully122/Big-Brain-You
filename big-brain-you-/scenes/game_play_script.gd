@@ -16,6 +16,8 @@ var typing_enemy = preload("res://characters/typing_enemy.tscn")
 @onready var input_box = $input_box/game_play_ui/HBoxContainer/LineEdit
 var ready_to_check: bool = false
 
+@onready var death_scene = $Effects/death_animation
+
 @onready var game_play_ui = $input_box/game_play_ui
 @onready var game_over_screen = $input_box/game_over_screen
 @onready var pause_screen = $input_box/paused_screen
@@ -106,7 +108,16 @@ func check_answer():
 		return
 	
 	if ready_to_check == true: 
-		active_enemy.death()
+		var death_pos = active_enemy.global_position
+		
+		death_scene.global_position = death_pos
+		death_scene.show()
+		
+		if death_scene.has_method("play"):
+			death_scene.play("death_animation")
+		
+		active_enemy.queue_free()
+		
 		emit_signal("answer_submited", true)
 	else: 
 		emit_signal("answer_submited", false)
@@ -115,6 +126,9 @@ func check_answer():
 	active_enemy = null
 	current_letter_index = -1
 
+func _on_death_animation_animation_finished() -> void:
+	death_scene.stop()
+	death_scene.hide()
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()

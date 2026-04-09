@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=96 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Script" uid="uid://dcwxdsar1lc3o" path="res://scenes/game_play_script.gd" id="1_obcf2"]
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
@@ -32,8 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://bjtwliysdueyq" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House3.png" id="29_upqqr"]
 [ext_resource type="Texture2D" uid="uid://cw12uh5io53bl" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Monastery.png" id="30_k7g67"]
 [ext_resource type="Texture2D" uid="uid://e8wolt7r7yhw" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="31_fcao4"]
-[ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="32_upqqr"]
 [ext_resource type="Script" uid="uid://b86oftclrfa14" path="res://scenes/input_box.gd" id="33_aackp"]
+[ext_resource type="Texture2D" uid="uid://cfuwj8vx4gyp1" path="res://Tiny Swords (Free Pack)/Units/Dead.png" id="33_k7g67"]
 [ext_resource type="Theme" uid="uid://snhrrssv0drm" path="res://score-lbl.tres" id="33_l2nrs"]
 [ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="34_6gf3w"]
 [ext_resource type="AudioStream" uid="uid://fqpoga3dddje" path="res://sounds/jump.wav" id="34_aackp"]
@@ -684,6 +684,112 @@ sources/5 = SubResource("TileSetAtlasSource_e5m22")
 sources/6 = SubResource("TileSetAtlasSource_057am")
 sources/7 = SubResource("TileSetAtlasSource_22jk4")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcao4"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxklj"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cwwd"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gp8p"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkm4l"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smje7"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5m22"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_057am"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22jk4"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abffa"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4nge"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc6j6"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1khu"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwact"]
+atlas = ExtResource("33_k7g67")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8uvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcao4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxklj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cwwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gp8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkm4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smje7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5m22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_057am")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22jk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abffa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4nge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc6j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1khu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwact")
+}],
+"loop": false,
+"name": &"death_animation",
+"speed": 24.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec3r2"]
 bg_color = Color(0, 0, 0, 0.615686)
 corner_radius_top_left = 3
@@ -807,7 +913,12 @@ z_index = 5
 y_sort_enabled = true
 position = Vector2(974, 480)
 
-[node name="death" parent="Effects" instance=ExtResource("32_upqqr")]
+[node name="death_animation" type="AnimatedSprite2D" parent="Effects"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_i8uvq")
+animation = &"death_animation"
+offset = Vector2(0, -30)
+flip_h = true
 
 [node name="TypingEnemyContainer" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -1028,6 +1139,7 @@ stream = ExtResource("35_6gf3w")
 [connection signal="answer_submited" from="." to="input_box" method="_on_game_play_scene_answer_submited"]
 [connection signal="timeout" from="difficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="animation_finished" from="Effects/death_animation" to="." method="_on_death_animation_animation_finished"]
 [connection signal="pressed" from="input_box/game_over_screen/CenterContainer/VBoxContainer/restart_btn" to="input_box" method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="input_box/game_over_screen/CenterContainer/VBoxContainer/home_btn" to="input_box" method="_on_home_btn_pressed"]
 [connection signal="pressed" from="input_box/game_over_screen/CenterContainer/VBoxContainer/quit_btn" to="input_box" method="_on_quit_btn_pressed"]

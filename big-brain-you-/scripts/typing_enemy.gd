@@ -14,9 +14,6 @@ var speed: float
 @export var attack_cooldown: float = 2
 var attack_frame: Array = [1, 2]
 
-@export_category("Related Scenes")
-@export var death_packed: PackedScene
-
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = %sprite   
 
@@ -110,12 +107,6 @@ func attack_sequence():
 
 	is_attacking = false
 
-
-func death():
-	var death_scene: Node2D = death_packed.instantiate()
-	death_scene.position = global_position + Vector2(0, -32)
-	%Effects.add_child(death_scene)
-	queue_free()
 
 
 func _on_sprite_frame_changed() -> void:
