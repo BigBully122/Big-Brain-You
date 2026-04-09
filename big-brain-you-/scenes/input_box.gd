@@ -72,12 +72,15 @@ func flash_question_label(color):
 	
 
 func _on_restart_btn_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/game_play_scene.tscn")
 
 func _on_home_btn_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/home_scene_map.tscn")
 
 func _on_quit_btn_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/home_menu.tscn")
 
 
@@ -94,8 +97,3 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 	if filtered != new_text:
 		line_edit_input.text = filtered
 		line_edit_input.set_caret_column(filtered.length())
-
-
-func _on_button_pressed() -> void:
-	#Make pause_screen be shown 
-	pass

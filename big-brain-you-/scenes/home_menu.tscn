@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3bvs2a8j2um5"]
+[gd_scene load_steps=10 format=3 uid="uid://b3bvs2a8j2um5"]
 
 [ext_resource type="Script" uid="uid://70jnb7ij4qei" path="res://scripts/home_menu.gd" id="1_ecwv3"]
 [ext_resource type="FontFile" uid="uid://cennkm0bt14r5" path="res://Fonts/Schoolbell-Regular.ttf" id="2_lwr52"]
+[ext_resource type="Theme" uid="uid://ctdojfn8dqrby" path="res://main_menu_right_btns.tres" id="3_lhq7i"]
+[ext_resource type="Texture2D" uid="uid://bfq3gg7wtjphd" path="res://Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_10.png" id="3_lwr52"]
+[ext_resource type="Texture2D" uid="uid://rqca3rc0wc4n" path="res://Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_11.png" id="5_yy0av"]
 
 [sub_resource type="Theme" id="Theme_tqwvy"]
 Label/font_sizes/font_size = 70
@@ -34,18 +37,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.167975, 0.186466, 1)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -84,30 +75,35 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -85.0
-offset_bottom = 104.0
+offset_left = -60.0
+offset_bottom = 114.0
 grow_horizontal = 0
 
-[node name="Button" type="Button" parent="BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+[node name="settings_btn" type="Button" parent="BoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme = ExtResource("3_lhq7i")
+icon = ExtResource("3_lwr52")
+icon_alignment = 1
+expand_icon = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 767.0
-offset_top = 458.0
-offset_right = 1343.0
-offset_bottom = 703.0
-text = "kjsakjhdkjhaskjhdkajhskjdhakjashkdjh"
+[node name="info_btn" type="Button" parent="BoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("3_lhq7i")
+icon = ExtResource("5_yy0av")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="VBoxContainer/play-btn" to="." method="_on_playbtn_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit-btn" to="." method="_on_quitbtn_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]

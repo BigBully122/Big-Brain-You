@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=80 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Script" uid="uid://dcwxdsar1lc3o" path="res://scenes/game_play_script.gd" id="1_obcf2"]
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
@@ -701,9 +701,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7g67"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0.615686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="Theme" id="Theme_k7g67"]
 Button/styles/hover = SubResource("StyleBoxFlat_ec3r2")
 Button/styles/normal = SubResource("StyleBoxFlat_upqqr")
+Button/styles/pressed = SubResource("StyleBoxFlat_k7g67")
 
 [node name="game_play_scene" type="Node2D"]
 y_sort_enabled = true
@@ -881,6 +893,7 @@ size_flags_horizontal = 4
 text = "Quit"
 
 [node name="paused_screen" type="PanelContainer" parent="input_box"]
+process_mode = 2
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -991,13 +1004,7 @@ theme = ExtResource("33_l2nrs")
 text = "19"
 horizontal_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="input_box/game_play_ui"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("36_ec3r2")
-
-[node name="Button" type="Button" parent="input_box/game_play_ui"]
+[node name="pause_btn" type="Button" parent="input_box/game_play_ui"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1029,8 +1036,8 @@ polygon = PackedVector2Array(23, 1113, 623, 884, 874, 155, 100, 466)
 [connection signal="pressed" from="input_box/game_over_screen/CenterContainer/VBoxContainer/restart_btn" to="input_box" method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="input_box/game_over_screen/CenterContainer/VBoxContainer/home_btn" to="input_box" method="_on_home_btn_pressed"]
 [connection signal="pressed" from="input_box/game_over_screen/CenterContainer/VBoxContainer/quit_btn" to="input_box" method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="input_box/paused_screen/CenterContainer/VBoxContainer/un_pause_btn" to="input_box" method="_on_restart_btn_pressed"]
-[connection signal="pressed" from="input_box/paused_screen/CenterContainer/VBoxContainer/restart_btn" to="input_box" method="_on_home_btn_pressed"]
+[connection signal="pressed" from="input_box/paused_screen/CenterContainer/VBoxContainer/un_pause_btn" to="." method="_on_un_pause_btn_pressed"]
+[connection signal="pressed" from="input_box/paused_screen/CenterContainer/VBoxContainer/restart_btn" to="input_box" method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="input_box/paused_screen/CenterContainer/VBoxContainer/quit_btn" to="input_box" method="_on_quit_btn_pressed"]
 [connection signal="text_changed" from="input_box/game_play_ui/HBoxContainer/LineEdit" to="input_box" method="_on_line_edit_text_changed"]
-[connection signal="pressed" from="input_box/game_play_ui/Button" to="input_box" method="_on_button_pressed"]
+[connection signal="pressed" from="input_box/game_play_ui/pause_btn" to="." method="_on_pause_btn_pressed"]

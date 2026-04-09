@@ -35,6 +35,8 @@ func _ready() -> void:
 	handle_difficulty_increase(Global.difficulty)
 
 func _physics_process(delta: float) -> void:
+	if Global.player_dead: 
+		state = State.IDLE
 	match state:
 		State.CHASE:
 			move_towards_player()

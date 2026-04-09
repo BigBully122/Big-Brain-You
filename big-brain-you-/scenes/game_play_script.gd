@@ -28,6 +28,7 @@ var lockal_player_health = 100
 
 func _ready() -> void:
 	Global.player_health = 100 
+	Global.player_dead = false
 	randomize()
 	spawn_timer.start()
 	answer_submited.connect(check_answer)
@@ -35,9 +36,12 @@ func _ready() -> void:
 	difficculty_timer.start()
 	player_health_changed.connect(on_player_health_changed)
 	print(Global.player_health)
+	pause_screen.hide()
+	game_over_screen.hide()
+	game_play_ui.show()
 
 func _process(delta: float) -> void:
-	if (Global.player_health < 0 or Global.player_health == 0): 
+	if (Global.player_health <= 0): 
 		game_over_maniger()
 	
 	var health_diffrense = lockal_player_health - Global.player_health
@@ -118,8 +122,8 @@ func spawn_enemy():
 	var enemy_instance = typing_enemy.instantiate()
 	var spawns = enemy_spawn_container.get_children()
 	var index = randi() % spawns.size()
-	enemy_container.add_child(enemy_instance)
 	enemy_instance.global_position = spawns[index].global_position
+	enemy_container.add_child(enemy_instance)
 
 
 func _on_difficulty_timer_timeout() -> void:
@@ -172,3 +176,20 @@ func game_over_maniger():
 	# puse game 
 	game_play_ui.hide()
 	game_over_screen.show()
+	spawn_timer.stop()
+	difficculty_timer.stop()
+	Global.player_dead = true
+
+
+func _on_pause_btn_pressed() -> void:
+	game_play_ui.hide()
+	pause_screen.show()
+	get_tree().paused = true 
+	
+
+
+func _on_un_pause_btn_pressed() -> void:
+	game_play_ui.show()
+	pause_screen.hide()
+	input_box.call_deferred("grab_focus")
+	get_tree().paused = false

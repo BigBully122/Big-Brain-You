@@ -1359,7 +1359,7 @@ one_way_collision_margin = 0.0
 
 [node name="player" parent="." instance=ExtResource("14_xqjfd")]
 z_index = 5
-position = Vector2(892, 532)
+position = Vector2(841, 490)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1372,7 +1372,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="GameOverScreen" type="PanelContainer" parent="CanvasLayer"]
+[node name="typing_game_panel_screen" type="PanelContainer" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1380,26 +1380,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverScreen"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/typing_game_panel_screen"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/typing_game_panel_screen/CenterContainer"]
 layout_mode = 2
 theme = ExtResource("47_7dkoo")
 theme_override_constants/separation = 5
 
-[node name="title_lbl" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+[node name="title_lbl" type="Label" parent="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "Typing game!"
 horizontal_alignment = 1
 
-[node name="typing_best_score_lbl" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+[node name="typing_best_score_lbl" type="Label" parent="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Best Score: "
 horizontal_alignment = 1
 
-[node name="typing_start_btn" type="Button" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+[node name="typing_start_btn" type="Button" parent="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1407,16 +1407,16 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
-[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="typing_exit_btn" type="Button" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+[node name="typing_exit_btn" type="Button" parent="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Exit"
 
 [connection signal="body_entered" from="characters/wrighting_chrc/wrighting_chrc_area" to="." method="_on_wrighting_chrc_area_body_entered"]
-[connection signal="pressed" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/typing_start_btn" to="." method="_on_typing_start_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/typing_exit_btn" to="." method="_on_typing_exit_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer/typing_start_btn" to="." method="_on_typing_start_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/typing_game_panel_screen/CenterContainer/VBoxContainer/typing_exit_btn" to="." method="_on_typing_exit_btn_pressed"]

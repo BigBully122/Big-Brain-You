@@ -11,6 +11,10 @@ func _physics_process(delta: float) -> void:
 	movement_loop()
 	
 func movement_loop(): 
+	if Global.player_movment_off: 
+		if %sprite.animation != "player_Idle": %sprite.animation = "player_Idle"
+		return 
+	
 	charactre_direction.x = Input.get_axis("move_left", "move_right")
 	charactre_direction.y = Input.get_axis("move_up", "move_down")
 	charactre_direction = charactre_direction.normalized()
