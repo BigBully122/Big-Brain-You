@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://cpk11onjgtrso"]
+[gd_scene load_steps=81 format=4 uid="uid://cpk11onjgtrso"]
 
 [ext_resource type="Script" uid="uid://dcwxdsar1lc3o" path="res://scenes/game_play_script.gd" id="1_obcf2"]
 [ext_resource type="Texture2D" uid="uid://ba8etcfn6ifmk" path="res://Tiny Swords (Free Pack)/Terrain/Tileset/Water Background color.png" id="1_t0qhy"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bjtwliysdueyq" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/House3.png" id="29_upqqr"]
 [ext_resource type="Texture2D" uid="uid://cw12uh5io53bl" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Monastery.png" id="30_k7g67"]
 [ext_resource type="Texture2D" uid="uid://e8wolt7r7yhw" path="res://Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="31_fcao4"]
+[ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="32_upqqr"]
 [ext_resource type="Script" uid="uid://b86oftclrfa14" path="res://scenes/input_box.gd" id="33_aackp"]
 [ext_resource type="Theme" uid="uid://snhrrssv0drm" path="res://score-lbl.tres" id="33_l2nrs"]
 [ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="34_6gf3w"]
@@ -802,6 +803,8 @@ position = Vector2(1585, 870)
 
 [node name="Effects" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="death" parent="Effects" instance=ExtResource("32_upqqr")]
 
 [node name="TypingEnemyContainer" type="Node2D" parent="."]
 y_sort_enabled = true

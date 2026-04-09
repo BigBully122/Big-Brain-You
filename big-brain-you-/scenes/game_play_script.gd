@@ -12,7 +12,6 @@ signal player_health_changed(change_value)
 @onready var enemy_spawn_container = $EnemySpawnContainer
 @onready var player = $player_game_play
 var typing_enemy = preload("res://characters/typing_enemy.tscn")
-var difficculty: int = 0
 
 @onready var input_box = $input_box/game_play_ui/HBoxContainer/LineEdit
 var ready_to_check: bool = false
@@ -29,6 +28,8 @@ var lockal_player_health = 100
 func _ready() -> void:
 	Global.player_health = 100 
 	Global.player_dead = false
+	SavesLoads._load()
+	Global.difficulty = SavesLoads.save_data.difficulty_num
 	randomize()
 	spawn_timer.start()
 	answer_submited.connect(check_answer)
@@ -127,13 +128,12 @@ func spawn_enemy():
 
 
 func _on_difficulty_timer_timeout() -> void:
-	difficculty += 1 
+	Global.difficulty += 1 
 	var time_diff_a = 5
 	var time_diff_k = 0.02
 	var time_diff_min = 2
 	#Global.emit_signal("difficulty_increased", difficculty) 
-	Global.difficulty = difficculty
-	spawn_timer.wait_time = time_diff_a * exp(-time_diff_k*difficculty) + time_diff_min
+	spawn_timer.wait_time = time_diff_a * exp(-time_diff_k*Global.difficulty) + time_diff_min
 
 func on_player_health_changed(change_value): 
 	Global.player_health -= change_value
@@ -173,18 +173,22 @@ func on_player_health_changed(change_value):
 
 
 func game_over_maniger(): 
-	# puse game 
+	
 	game_play_ui.hide()
 	game_over_screen.show()
 	spawn_timer.stop()
 	difficculty_timer.stop()
 	Global.player_dead = true
+	SavesLoads.save_data.difficulty_num = Global.difficulty
+	SavesLoads._save()
 
 
 func _on_pause_btn_pressed() -> void:
 	game_play_ui.hide()
 	pause_screen.show()
 	get_tree().paused = true 
+	SavesLoads.save_data.difficulty_num = Global.difficulty
+	SavesLoads._save()
 	
 
 

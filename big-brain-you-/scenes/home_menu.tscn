@@ -185,6 +185,11 @@ text = "Submit"
 [node name="WrongSfx" type="AudioStreamPlayer2D" parent="ask_player_name"]
 stream = ExtResource("8_s7ko5")
 
+[node name="debug_temp_lbl" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 21.0
+
 [connection signal="pressed" from="VBoxContainer/play-btn" to="." method="_on_playbtn_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit-btn" to="." method="_on_quitbtn_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]

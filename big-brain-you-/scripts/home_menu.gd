@@ -6,7 +6,13 @@ signal quit_btn_pressed(origin: String)
 @onready var game_header = $game_header
 @onready var ask_player_name_contener = $ask_player_name
 
+@onready var debug_lbl = $debug_temp_lbl
+
 func _ready() -> void:
+	SavesLoads._load()
+	Global.difficulty = SavesLoads.save_data.difficulty_num
+	debug_lbl.text = "DIFF: %s" % SavesLoads.save_data.difficulty_num
+	print("Diff from Global: %s" % Global.difficulty)
 	ask_player_name_contener.hide()
 	if SavesLoads.save_data.player_name == "": 
 		ask_player_name_contener.show()

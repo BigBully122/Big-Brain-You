@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SavesLoads="*res://scripts/SavesLoads.gd"
 Global="*res://scripts/Global.gd"
 PrompList="*res://scripts/Promp_list.gd"
-SavesLoads="*res://scripts/SavesLoads.gd"
 
 [display]
 
