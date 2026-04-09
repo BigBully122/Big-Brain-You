@@ -1,8 +1,10 @@
 extends Control
 
-@onready var music_value = $NinePatchRect/ScrollContainer/VBoxContainer/music/SpinBox
-@onready var sound_value = $NinePatchRect/ScrollContainer/VBoxContainer/sounds/SpinBox
-@onready var difficulty_type = $NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty/OptionButton
+@onready var player_name_edit = $NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit/LineEdit
+@onready var music_spin_box = $NinePatchRect/ScrollContainer/VBoxContainer/music/SpinBox
+@onready var sounds_spin_box = $NinePatchRect/ScrollContainer/VBoxContainer/sounds/SpinBox
+@onready var difficulty_options_btn = $NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty/OptionButton
+@onready var user_prompt_text_edit = $NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit/TextEdit
 
 
 
@@ -11,11 +13,14 @@ extends Control
 @onready var custom_text_lbl_container = $NinePatchRect/ScrollContainer/VBoxContainer/custom_text_lbl
 @onready var custom_text_edit_container = $NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit
 
+
 func _ready() -> void:
 	hardens_lbl_container.hide()
 	hardens_menu_container.hide()
 	custom_text_lbl_container.hide()
 	custom_text_edit_container.hide()
+	
+	_on_reset_btn_pressed()
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
@@ -36,12 +41,31 @@ func _on_close_btn_pressed() -> void:
 
 
 func _on_save_btn_pressed() -> void:
-	pass # Replace with function body.
+	SavesLoads.save_data.player_name = player_name_edit.text
+	SavesLoads.save_data.music_value = music_spin_box.value
+	SavesLoads.save_data.sounds_value = sounds_spin_box.value
+	SavesLoads.save_data.difficulty_type = difficulty_options_btn.selected
+	SavesLoads.save_data.user_prompt_text = user_prompt_text_edit.text
+	
+	SavesLoads._save()
 
 
 func _on_reset_btn_pressed() -> void:
-	pass # Replace with function body.
+	SavesLoads._load()
+	
+	player_name_edit.text = SavesLoads.save_data.player_name 
+	music_spin_box.value = SavesLoads.save_data.music_value
+	sounds_spin_box.value = SavesLoads.save_data.sounds_value
+	difficulty_options_btn.select(SavesLoads.save_data.difficulty_type)
+	user_prompt_text_edit.text = SavesLoads.save_data.user_prompt_text 
 
 
 func _on_reset_to_original_btn_pressed() -> void:
-	pass # Replace with function body.
+	SavesLoads.save_data.music_value = 60
+	SavesLoads.save_data.sounds_value = 60
+	SavesLoads.save_data.difficulty_type = 1
+	SavesLoads.save_data.user_prompt_text = ""
+	
+	SavesLoads._save()
+	
+	_on_reset_btn_pressed()

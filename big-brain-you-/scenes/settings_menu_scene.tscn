@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm6kyxemwah6i"]
+[gd_scene load_steps=7 format=3 uid="uid://bm6kyxemwah6i"]
 
 [ext_resource type="Script" uid="uid://1gjtps6vmwx8" path="res://scenes/settings_menu_scene.gd" id="1_1f6k0"]
 [ext_resource type="Texture2D" uid="uid://bu6aa66xpv8os" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Setting menu.png" id="1_mwxyr"]
 [ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="2_fao48"]
 [ext_resource type="Script" uid="uid://cubgmakyhgfvc" path="res://scenes/music_settings_container.gd" id="3_fao48"]
+[ext_resource type="Script" uid="uid://c1titasex8t13" path="res://scenes/settings_player_name_edit.gd" id="4_bhalb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f6k0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -93,6 +94,43 @@ expand_icon = true
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = ExtResource("2_fao48")
+
+[node name="player_name" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Player Name"
+
+[node name="player_name_edit" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("4_bhalb")
+
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Enter Your Name"
+
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "My name is.."
+alignment = 1
+max_length = 10
 
 [node name="music_sounds" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
 layout_mode = 2
