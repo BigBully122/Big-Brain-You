@@ -830,7 +830,6 @@ script = ExtResource("1_obcf2")
 metadata/_edit_lock_ = true
 
 [node name="difficultyTimer" type="Timer" parent="."]
-wait_time = 0.01
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -931,6 +930,16 @@ position = Vector2(343, 509)
 visible = false
 polygon = PackedVector2Array(-6, 28, 212, 35, 982, 508, -59, 724, -311, 531, -472, 26, -171, -494, 35, -648, 942, -445, 210, -50, -19, -37)
 
+[node name="PlayerHealthBar" type="ProgressBar" parent="player_game_play"]
+z_index = 5
+offset_left = -76.0
+offset_top = -68.0
+offset_right = 90.0
+offset_bottom = -43.0
+theme = ExtResource("34_6gf3w")
+step = 1.0
+value = 60.0
+
 [node name="input_box" type="CanvasLayer" parent="."]
 script = ExtResource("33_aackp")
 
@@ -1011,7 +1020,6 @@ text = "Quit"
 
 [node name="paused_screen" type="PanelContainer" parent="input_box"]
 process_mode = 2
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1080,12 +1088,13 @@ text = "Quit"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 14.0
-offset_right = -50.0
-offset_bottom = 14.0
+offset_left = 46.0
+offset_top = 12.0
+offset_right = -44.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="input_box/game_play_ui"]
 layout_mode = 2

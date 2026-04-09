@@ -18,9 +18,24 @@ var ready_to_check: bool = false
 
 @onready var death_scene = $Effects/death_animation
 
+@onready var ui_holder: CanvasLayer = $input_box
 @onready var game_play_ui = $input_box/game_play_ui
 @onready var game_over_screen = $input_box/game_over_screen
 @onready var pause_screen = $input_box/paused_screen
+
+@onready var player_health_bar = $player_game_play/PlayerHealthBar
+
+
+
+@onready var game_over_score_lbl: Label = $input_box/game_over_screen/CenterContainer/VBoxContainer/score_lbl
+@onready var game_over_mistakes_lbl: Label = $input_box/game_over_screen/CenterContainer/VBoxContainer/mistakes_lbl
+@onready var game_over_best_score_lbl: Label = $input_box/game_over_screen/CenterContainer/VBoxContainer/best_score_lbl
+
+@onready var pause_score_lbl: Label = $input_box/paused_screen/CenterContainer/VBoxContainer/score_lbl
+@onready var pause_mistakes_lbl: Label = $input_box/paused_screen/CenterContainer/VBoxContainer/mistakes_lbl
+@onready var pause_best_score_lbl: Label = $input_box/paused_screen/CenterContainer/VBoxContainer/best_score_lbl
+
+
 
 var active_enemy = null 
 var current_letter_index: int = -1 
@@ -32,6 +47,7 @@ func _ready() -> void:
 	Global.player_dead = false
 	SavesLoads._load()
 	Global.difficulty = SavesLoads.save_data.difficulty_num
+	player_health_bar.value = Global.player_health
 	randomize()
 	spawn_timer.start()
 	answer_submited.connect(check_answer)
@@ -42,6 +58,7 @@ func _ready() -> void:
 	pause_screen.hide()
 	game_over_screen.hide()
 	game_play_ui.show()
+
 
 func _process(delta: float) -> void:
 	if (Global.player_health <= 0): 
@@ -58,10 +75,10 @@ func find_new_active_enemy(typed_character: String):
 		var prompt = enemy.get_prompt()
 		var next_character = prompt.substr(0, 1)
 		if next_character == typed_character: 
-			print("found new enemy that starts with %s " % next_character )
 			active_enemy = enemy
 			current_letter_index =  1
 			active_enemy.set_next_character(current_letter_index)
+			active_enemy.focused()
 			return
 
 
@@ -118,6 +135,8 @@ func check_answer():
 		
 		active_enemy.queue_free()
 		
+		Global.player_health += 1
+		player_health_bar.value = Global.player_health
 		emit_signal("answer_submited", true)
 	else: 
 		emit_signal("answer_submited", false)
@@ -151,12 +170,13 @@ func _on_difficulty_timer_timeout() -> void:
 
 func on_player_health_changed(change_value): 
 	Global.player_health -= change_value
+	player_health_bar.value = Global.player_health
 
 	var camera = $Camera2D
 	camera.offset = Vector2.ZERO
 	
 	var magnitude = clamp(abs(change_value) * 3.0, 3.0, 20.0)
-	
+
 	var duration = 0.2
 	var shakes = 4
 	
@@ -187,11 +207,24 @@ func on_player_health_changed(change_value):
 
 
 func game_over_maniger(): 
-	
 	game_play_ui.hide()
 	game_over_screen.show()
 	spawn_timer.stop()
 	difficculty_timer.stop()
+	
+	SavesLoads._load()
+	var max_score = 0
+
+	if str(SavesLoads.save_data.max_typing_score_ever).is_valid_int():
+		max_score = int(SavesLoads.save_data.max_typing_score_ever)
+
+	if max_score < ui_holder.rights_ans:
+		SavesLoads.save_data.max_typing_score_ever = ui_holder.rights_ans
+	
+	game_over_score_lbl.text = "Score: %s " % ui_holder.rights_ans 
+	game_over_mistakes_lbl.text = "Mistakes %s " % ui_holder.wrong_ans 
+	game_over_best_score_lbl.text = "Best Score %s " % SavesLoads.save_data.max_typing_score_ever
+	
 	Global.player_dead = true
 	SavesLoads.save_data.difficulty_num = Global.difficulty
 	SavesLoads._save()
@@ -201,6 +234,21 @@ func _on_pause_btn_pressed() -> void:
 	game_play_ui.hide()
 	pause_screen.show()
 	get_tree().paused = true 
+	
+	
+	SavesLoads._load()
+	var max_score = 0
+	
+	if str(SavesLoads.save_data.max_typing_score_ever).is_valid_int():
+		max_score = int(SavesLoads.save_data.max_typing_score_ever)
+
+	if max_score < ui_holder.rights_ans:
+		SavesLoads.save_data.max_typing_score_ever = ui_holder.rights_ans
+	
+	pause_score_lbl.text = "Score: %s " % ui_holder.rights_ans 
+	pause_mistakes_lbl.text = "Mistakes %s " % ui_holder.wrong_ans 
+	pause_best_score_lbl.text = "Best Score %s " % SavesLoads.save_data.max_typing_score_ever
+	
 	SavesLoads.save_data.difficulty_num = Global.difficulty
 	SavesLoads._save()
 	

@@ -21,6 +21,9 @@ func _ready() -> void:
 	custom_text_edit_container.hide()
 	
 	_on_reset_btn_pressed()
+	
+	SavesLoads.save_data.difficulty_num = 0
+	SavesLoads._save()
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:

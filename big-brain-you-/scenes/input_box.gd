@@ -6,6 +6,8 @@ extends CanvasLayer
 @onready var sfx_correct = $CorrectSfx  
 @onready var sfx_wrong = $WrongSfx 
 
+
+
 var score = 0
 var rights_ans = 0
 var wrong_ans = 0 

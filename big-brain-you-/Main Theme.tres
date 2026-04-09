@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://b8e86kcwqpc2o"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://b8e86kcwqpc2o"]
 
 [ext_resource type="FontFile" uid="uid://rxgdbi7p0iy7" path="res://Fonts/CaveatBrush-Regular.ttf" id="1_w73m2"]
 [ext_resource type="Texture2D" uid="uid://50e71fuih5kg" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x19.png" id="2_hekp1"]
@@ -111,6 +111,20 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xyyd"]
+bg_color = Color(0.466667, 1, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abb86"]
+bg_color = Color(0.816877, 0.0415688, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
@@ -133,5 +147,7 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_hekp1")
 OptionButton/styles/hover = SubResource("StyleBoxFlat_uvdkk")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_ndjdi")
 OptionButton/styles/pressed = SubResource("StyleBoxFlat_27dwd")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8xyyd")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_abb86")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_outline_color = Color(0.288518, 0.288518, 0.288518, 1)

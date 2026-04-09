@@ -1,10 +1,10 @@
 extends Node
 
-const FILE_PATH: String = "user://Saved_Settings.json"
+const FILE_PATH: String = "user://Saved_Settings1.json"
 
 var save_data: Dictionary = {
 	"player_name": "You",
-	"max_typing_score_ever": 0,
+	"max_typing_score_ever": 1,
 	"max_reading_score_ever": 0, 
 	"max_addition_score_ever": 0, 
 	"max_subtraction_score_ever": 0, 

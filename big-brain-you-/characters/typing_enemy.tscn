@@ -1,10 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://1g0d2a67t8kb"]
+[gd_scene load_steps=24 format=3 uid="uid://1g0d2a67t8kb"]
 
 [ext_resource type="Script" uid="uid://dot0rc6f8k8fj" path="res://scripts/typing_enemy.gd" id="1_wkp0v"]
 [ext_resource type="Texture2D" uid="uid://c445m15wswmjr" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Right_Attack.png" id="2_qfmex"]
 [ext_resource type="Texture2D" uid="uid://c1hkj0xy8sf3i" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Right_Defence.png" id="3_jrv1s"]
 [ext_resource type="Texture2D" uid="uid://ds3t3khaq5n3a" path="res://Tiny Swords (Free Pack)/Units/Red Units/Lancer/Lancer_Run.png" id="4_44vjg"]
-[ext_resource type="PackedScene" uid="uid://cv5vipwxq7lp2" path="res://scenes/death.tscn" id="4_apt5m"]
 [ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="5_44vjg"]
 [ext_resource type="Theme" uid="uid://bvn4forhv3ih3" path="res://enemy_overhead_lbl.tres" id="6_jrv1s"]
 
@@ -151,12 +150,6 @@ offset = Vector2(0, -30)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -36)
 shape = SubResource("CircleShape2D_6ufn1")
-
-[node name="death" parent="." instance=ExtResource("4_apt5m")]
-visible = false
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1, -21)
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 7

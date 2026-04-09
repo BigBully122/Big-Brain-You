@@ -8,7 +8,7 @@ enum State {
 
 @export_category("Stats")
 var speed: float
-@export var attack_damage: int = 10
+@export var attack_damage: float = 2.5
 @export var attack_times: int = 1
 @export var attack_range: float = 150
 @export var attack_cooldown: float = 2
@@ -108,11 +108,10 @@ func attack_sequence():
 	is_attacking = false
 
 
-
 func _on_sprite_frame_changed() -> void:
 	if sprite.animation == "enemy_Attack": 
 		if sprite.frame in attack_frame: 
-			Global.player_health -= 5
+			Global.player_health -= attack_damage
 
 #----------------------------------------------------------#
 
@@ -123,8 +122,12 @@ func _on_sprite_frame_changed() -> void:
 @export_color_no_alpha var left_to_type_col: Color
 @export_color_no_alpha var normal_col: Color
 
+@onready var prompt_holder = $Label
 @onready var prompt = $Label/RichTextLabel
 @onready var prompt_text = prompt.text
+
+func focused():
+	prompt_holder.z_index = 100
 
 func get_prompt() -> String: 
 	return prompt_text
