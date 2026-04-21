@@ -1,6 +1,6 @@
 extends Node
 
-const FILE_PATH: String = "user://Saved_Settings1.json"
+const FILE_PATH: String = "user://Saved_Settings2.json"
 
 var save_data: Dictionary = {
 	"player_name": "You",
@@ -12,6 +12,7 @@ var save_data: Dictionary = {
 	"difficulty_num": 0,
 	"music_value": 60,
 	"sounds_value": 60,
+	"voices_type": 0,
 	"difficulty_type": 1, 
 	"user_prompt_text": ""
 }

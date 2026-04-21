@@ -3,6 +3,8 @@ extends Control
 @onready var player_name_edit = $NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit/LineEdit
 @onready var music_spin_box = $NinePatchRect/ScrollContainer/VBoxContainer/music/SpinBox
 @onready var sounds_spin_box = $NinePatchRect/ScrollContainer/VBoxContainer/sounds/SpinBox
+@onready var voices_options = $NinePatchRect/ScrollContainer/VBoxContainer/voices/OptionButton
+var Voices: Array[Dictionary] = DisplayServer.tts_get_voices()
 @onready var difficulty_options_btn = $NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty/OptionButton
 @onready var user_prompt_text_edit = $NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit/TextEdit
 
@@ -19,6 +21,10 @@ func _ready() -> void:
 	hardens_menu_container.hide()
 	custom_text_lbl_container.hide()
 	custom_text_edit_container.hide()
+	
+	for voice in Voices: 
+		voices_options.add_item(voice["name"])
+		
 	
 	_on_reset_btn_pressed()
 	
@@ -47,6 +53,7 @@ func _on_save_btn_pressed() -> void:
 	SavesLoads.save_data.player_name = player_name_edit.text
 	SavesLoads.save_data.music_value = music_spin_box.value
 	SavesLoads.save_data.sounds_value = sounds_spin_box.value
+	SavesLoads.save_data.voices_type = voices_options.get_selected_id()
 	SavesLoads.save_data.difficulty_type = difficulty_options_btn.selected
 	SavesLoads.save_data.user_prompt_text = user_prompt_text_edit.text
 	
@@ -59,6 +66,7 @@ func _on_reset_btn_pressed() -> void:
 	player_name_edit.text = SavesLoads.save_data.player_name 
 	music_spin_box.value = SavesLoads.save_data.music_value
 	sounds_spin_box.value = SavesLoads.save_data.sounds_value
+	voices_options.select(SavesLoads.save_data.voices_type)
 	difficulty_options_btn.select(SavesLoads.save_data.difficulty_type)
 	user_prompt_text_edit.text = SavesLoads.save_data.user_prompt_text 
 
@@ -66,6 +74,7 @@ func _on_reset_btn_pressed() -> void:
 func _on_reset_to_original_btn_pressed() -> void:
 	SavesLoads.save_data.music_value = 60
 	SavesLoads.save_data.sounds_value = 60
+	SavesLoads.save_data.voices_type = 0
 	SavesLoads.save_data.difficulty_type = 1
 	SavesLoads.save_data.user_prompt_text = ""
 	

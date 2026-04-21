@@ -36,6 +36,8 @@ var ready_to_check: bool = false
 @onready var pause_best_score_lbl: Label = $input_box/paused_screen/CenterContainer/VBoxContainer/best_score_lbl
 
 
+var Voices: Array[Dictionary] = DisplayServer.tts_get_voices()
+
 
 var active_enemy = null 
 var current_letter_index: int = -1 
@@ -73,6 +75,7 @@ func _process(delta: float) -> void:
 func find_new_active_enemy(typed_character: String): 
 	for enemy in enemy_container.get_children(): 
 		var prompt = enemy.get_prompt()
+		read(prompt)
 		var next_character = prompt.substr(0, 1)
 		if next_character == typed_character: 
 			active_enemy = enemy
@@ -81,6 +84,12 @@ func find_new_active_enemy(typed_character: String):
 			active_enemy.focused()
 			return
 
+func read(text): 
+	SavesLoads._load()
+	var voice_id: int = SavesLoads.save_data.voices_type
+	var speaker: String = Voices[voice_id]["id"]
+	DisplayServer.tts_stop()
+	DisplayServer.tts_speak(text, speaker)
 
 func handle_input_from_box():
 	var text = input_box.text
