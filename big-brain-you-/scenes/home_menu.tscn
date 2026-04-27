@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3bvs2a8j2um5"]
+[gd_scene format=3 uid="uid://b3bvs2a8j2um5"]
 
 [ext_resource type="Script" uid="uid://70jnb7ij4qei" path="res://scripts/home_menu.gd" id="1_ecwv3"]
 [ext_resource type="FontFile" uid="uid://cennkm0bt14r5" path="res://Fonts/Schoolbell-Regular.ttf" id="2_lwr52"]
 [ext_resource type="Theme" uid="uid://ctdojfn8dqrby" path="res://main_menu_right_btns.tres" id="3_lhq7i"]
 [ext_resource type="Texture2D" uid="uid://bfq3gg7wtjphd" path="res://Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_10.png" id="3_lwr52"]
 [ext_resource type="Texture2D" uid="uid://rqca3rc0wc4n" path="res://Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_11.png" id="5_yy0av"]
-[ext_resource type="Script" uid="uid://3oyn0kikffa1" path="res://scenes/ask_player_name.gd" id="6_tr4f7"]
+[ext_resource type="Script" uid="uid://3oyn0kikffa1" path="res://scripts/ask_player_name.gd" id="6_s7ko5"]
 [ext_resource type="Texture2D" uid="uid://bu6aa66xpv8os" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Setting menu.png" id="6_yy0av"]
 [ext_resource type="AudioStream" uid="uid://ckfvf8mdxtn1o" path="res://sounds/hurt.wav" id="8_s7ko5"]
 
@@ -30,7 +30,7 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_6chlp"]
 events = [SubResource("InputEventKey_s7ko5")]
 
-[node name="home_menu" type="Control"]
+[node name="home_menu" type="Control" unique_id=1738753539]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ecwv3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1415343228]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.167975, 0.186466, 1)
 
-[node name="game_header" type="Label" parent="."]
+[node name="game_header" type="Label" parent="." unique_id=1647466558]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -59,7 +59,7 @@ text = "Big Brain YOU"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=434699674]
 layout_mode = 0
 offset_left = 194.0
 offset_top = 223.0
@@ -68,19 +68,19 @@ offset_bottom = 480.0
 theme = SubResource("Theme_mqeai")
 theme_override_constants/separation = 50
 
-[node name="play-btn" type="Button" parent="VBoxContainer"]
+[node name="play-btn" type="Button" parent="VBoxContainer" unique_id=323055299]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme = SubResource("Theme_j6liv")
 text = "Play"
 
-[node name="quit-btn" type="Button" parent="VBoxContainer"]
+[node name="quit-btn" type="Button" parent="VBoxContainer" unique_id=1991389704]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme = SubResource("Theme_tel8n")
 text = "Quit"
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=555251038]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -89,12 +89,12 @@ offset_left = -60.0
 offset_bottom = 114.0
 grow_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer" unique_id=60986380]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="settings_btn" type="Button" parent="BoxContainer/VBoxContainer"]
+[node name="settings_btn" type="Button" parent="BoxContainer/VBoxContainer" unique_id=1647932630]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -104,7 +104,7 @@ icon = ExtResource("3_lwr52")
 icon_alignment = 1
 expand_icon = true
 
-[node name="info_btn" type="Button" parent="BoxContainer/VBoxContainer"]
+[node name="info_btn" type="Button" parent="BoxContainer/VBoxContainer" unique_id=1830666356]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -114,7 +114,7 @@ icon = ExtResource("5_yy0av")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ask_player_name" type="ColorRect" parent="."]
+[node name="ask_player_name" type="ColorRect" parent="." unique_id=1641553955]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -123,9 +123,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.745124, 0.4983, 0.281579, 1)
-script = ExtResource("6_tr4f7")
+script = ExtResource("6_s7ko5")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="ask_player_name"]
+[node name="NinePatchRect" type="NinePatchRect" parent="ask_player_name" unique_id=1472558844]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,7 +145,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ask_player_name/NinePatchRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ask_player_name/NinePatchRect" unique_id=1095253681]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,21 +160,21 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ask_player_name/NinePatchRect/VBoxContainer"]
+[node name="Label" type="Label" parent="ask_player_name/NinePatchRect/VBoxContainer" unique_id=2016044983]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Enter Your Name"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="LineEdit" type="LineEdit" parent="ask_player_name/NinePatchRect/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="ask_player_name/NinePatchRect/VBoxContainer" unique_id=1455843584]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 placeholder_text = "My name is.."
 alignment = 1
 max_length = 10
 
-[node name="submit_btn" type="Button" parent="ask_player_name/NinePatchRect/VBoxContainer"]
+[node name="submit_btn" type="Button" parent="ask_player_name/NinePatchRect/VBoxContainer" unique_id=1366058203]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -182,10 +182,10 @@ size_flags_vertical = 4
 shortcut = SubResource("Shortcut_6chlp")
 text = "Submit"
 
-[node name="WrongSfx" type="AudioStreamPlayer2D" parent="ask_player_name"]
+[node name="WrongSfx" type="AudioStreamPlayer2D" parent="ask_player_name" unique_id=574422326]
 stream = ExtResource("8_s7ko5")
 
-[node name="debug_temp_lbl" type="Label" parent="."]
+[node name="debug_temp_lbl" type="Label" parent="." unique_id=1736495629]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 21.0

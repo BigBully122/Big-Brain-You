@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://b8e86kcwqpc2o"]
+[gd_resource type="Theme" format=3 uid="uid://b8e86kcwqpc2o"]
 
 [ext_resource type="FontFile" uid="uid://rxgdbi7p0iy7" path="res://Fonts/CaveatBrush-Regular.ttf" id="1_w73m2"]
 [ext_resource type="Texture2D" uid="uid://50e71fuih5kg" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x19.png" id="2_hekp1"]
