@@ -55,6 +55,7 @@ func _on_save_btn_pressed() -> void:
 	SavesLoads.save_data.sounds_value = sounds_spin_box.value
 	SavesLoads.save_data.voices_type = voices_options.get_selected_id()
 	SavesLoads.save_data.difficulty_type = difficulty_options_btn.selected
+	print("Difficulty type from settings save btn: %s" %SavesLoads.save_data.difficulty_type)
 	SavesLoads.save_data.user_prompt_text = user_prompt_text_edit.text
 	
 	SavesLoads._save()

@@ -27,6 +27,7 @@ func normalize_text(text: String) -> String:
 	var regex = RegEx.create_from_string("[^a-zåäö]")
 	return regex.sub(text, " ", true)
 
+
 func split_to_words(text: String) -> Array:
 	var words = text.split(" ", false)
 	var result = []
@@ -40,21 +41,14 @@ func split_to_words(text: String) -> Array:
 func classify_by_length(words: Array):
 	SavesLoads._load()
 	var difficulty_type = SavesLoads.save_data.difficulty_type
-	
 	short_words.clear()
 	medium_words.clear()
 	long_words.clear()
+	print("From propt lis %s: " %difficulty_type)
 	
 	for word in words:
-		if word.length() <= 6:
-			short_words.append(word)
-		elif word.length() <= 7:
-			medium_words.append(word)
-		else:
-			long_words.append(word)
-			
 		if difficulty_type == 0: 
-			if word.length() <= 1:
+			if word.length() <= 2:
 				short_words.append(word)
 			#elif word.length() <= 7:
 			#	medium_words.append(word)
@@ -74,6 +68,8 @@ func classify_by_length(words: Array):
 			#	medium_words.append(word)
 			#else:
 			#	long_words.append(word)
+		
+		print(short_words)
 		
 
 

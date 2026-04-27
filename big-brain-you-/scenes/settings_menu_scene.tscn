@@ -1,25 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm6kyxemwah6i"]
+[gd_scene format=3 uid="uid://bm6kyxemwah6i"]
 
-[ext_resource type="Script" uid="uid://1gjtps6vmwx8" path="res://scenes/settings_menu_scene.gd" id="1_1f6k0"]
+[ext_resource type="Script" uid="uid://1gjtps6vmwx8" path="res://scripts/settings_menu_scene.gd" id="1_bhalb"]
 [ext_resource type="Texture2D" uid="uid://bu6aa66xpv8os" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Setting menu.png" id="1_mwxyr"]
 [ext_resource type="Theme" uid="uid://b8e86kcwqpc2o" path="res://Main Theme.tres" id="2_fao48"]
-[ext_resource type="Script" uid="uid://cubgmakyhgfvc" path="res://scenes/music_settings_container.gd" id="3_fao48"]
-[ext_resource type="Script" uid="uid://c1titasex8t13" path="res://scenes/settings_player_name_edit.gd" id="4_bhalb"]
+[ext_resource type="Script" uid="uid://c1titasex8t13" path="res://scripts/settings_player_name_edit.gd" id="4_us5db"]
+[ext_resource type="Script" uid="uid://cubgmakyhgfvc" path="res://scripts/music_settings_container.gd" id="5_08xvg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f6k0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="settings" type="Control"]
+[node name="settings" type="Control" unique_id=2006646588]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1f6k0")
+script = ExtResource("1_bhalb")
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1531861406]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.745124, 0.4983, 0.281579, 1)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=272330393]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,7 +44,7 @@ grow_vertical = 2
 texture = ExtResource("1_mwxyr")
 region_rect = Rect2(140, 12, 105, 122)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect" unique_id=1373741496]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,31 +55,31 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/ScrollContainer" unique_id=1928500011]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSeparator" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1278908807]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = ExtResource("2_fao48")
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=595963383]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings Menu"
 horizontal_alignment = 1
 
-[node name="anvanced_settings" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="anvanced_settings" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=2073057875]
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/anvanced_settings"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/anvanced_settings" unique_id=214590461]
 layout_mode = 2
 text = "   Advanced Settings "
 
-[node name="CheckButton" type="CheckButton" parent="NinePatchRect/ScrollContainer/VBoxContainer/anvanced_settings"]
+[node name="CheckButton" type="CheckButton" parent="NinePatchRect/ScrollContainer/VBoxContainer/anvanced_settings" unique_id=1685752376]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -90,186 +90,186 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1f6k0")
 alignment = 1
 expand_icon = true
 
-[node name="HSeparator2" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=2018620327]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = ExtResource("2_fao48")
 
-[node name="player_name" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="player_name" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=124988335]
 layout_mode = 2
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name" unique_id=1316765032]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name" unique_id=1815223157]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Player Name"
 
-[node name="player_name_edit" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="player_name_edit" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1903977639]
 layout_mode = 2
 theme_override_constants/separation = 0
-script = ExtResource("4_bhalb")
+script = ExtResource("4_us5db")
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit" unique_id=1191438757]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit" unique_id=763537112]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Enter Your Name"
 
-[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit" unique_id=1376805754]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit"]
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/ScrollContainer/VBoxContainer/player_name_edit" unique_id=1845938531]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 placeholder_text = "My name is.."
 alignment = 1
 max_length = 10
 
-[node name="music_sounds" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="music_sounds" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1748212075]
 layout_mode = 2
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music_sounds"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music_sounds" unique_id=2098256150]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/music_sounds"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/music_sounds" unique_id=35947168]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Music & Sounds"
 
-[node name="music" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="music" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1262138975]
 layout_mode = 2
 theme_override_constants/separation = 0
-script = ExtResource("3_fao48")
+script = ExtResource("5_08xvg")
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music" unique_id=85106954]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/music"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/music" unique_id=1968856500]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Music"
 
-[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music"]
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music" unique_id=1826778396]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="NinePatchRect/ScrollContainer/VBoxContainer/music"]
+[node name="HSlider" type="HSlider" parent="NinePatchRect/ScrollContainer/VBoxContainer/music" unique_id=2091087157]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("2_fao48")
 
-[node name="Container3" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music"]
+[node name="Container3" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/music" unique_id=1445560184]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="NinePatchRect/ScrollContainer/VBoxContainer/music"]
+[node name="SpinBox" type="SpinBox" parent="NinePatchRect/ScrollContainer/VBoxContainer/music" unique_id=862143944]
 layout_mode = 2
 theme = ExtResource("2_fao48")
 
-[node name="sounds" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="sounds" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1951892691]
 layout_mode = 2
 theme_override_constants/separation = 0
-script = ExtResource("3_fao48")
+script = ExtResource("5_08xvg")
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds" unique_id=1579380812]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds" unique_id=442099937]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Sounds"
 
-[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds"]
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds" unique_id=1492717830]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds"]
+[node name="HSlider" type="HSlider" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds" unique_id=1403599720]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("2_fao48")
 
-[node name="Container3" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds"]
+[node name="Container3" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds" unique_id=1161135908]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds"]
+[node name="SpinBox" type="SpinBox" parent="NinePatchRect/ScrollContainer/VBoxContainer/sounds" unique_id=247388384]
 layout_mode = 2
 theme = ExtResource("2_fao48")
 
-[node name="voices" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="voices" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=2135833001]
 layout_mode = 2
 theme_override_constants/separation = 0
-script = ExtResource("3_fao48")
+script = ExtResource("5_08xvg")
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices" unique_id=153135644]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices" unique_id=413065145]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Voices"
 
-[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices"]
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices" unique_id=1672052686]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices"]
+[node name="OptionButton" type="OptionButton" parent="NinePatchRect/ScrollContainer/VBoxContainer/voices" unique_id=2092911765]
 custom_minimum_size = Vector2(365, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=130027522]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme = ExtResource("2_fao48")
 
-[node name="hardness" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="hardness" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1440502465]
 layout_mode = 2
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/hardness"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/hardness" unique_id=633164349]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/hardness"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/hardness" unique_id=1624809785]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Hardness"
 
-[node name="game_difficulty" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="game_difficulty" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1523036941]
 layout_mode = 2
 theme_override_constants/separation = 0
-script = ExtResource("3_fao48")
+script = ExtResource("5_08xvg")
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty" unique_id=154542687]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty" unique_id=371770450]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Difficulty"
 
-[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty"]
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty" unique_id=1157287710]
 custom_minimum_size = Vector2(13, 0)
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty"]
+[node name="OptionButton" type="OptionButton" parent="NinePatchRect/ScrollContainer/VBoxContainer/game_difficulty" unique_id=1606403458]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("2_fao48")
@@ -285,27 +285,27 @@ popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
 
-[node name="custom_text_lbl" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="custom_text_lbl" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1688531665]
 layout_mode = 2
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_lbl"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_lbl" unique_id=683478139]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_lbl"]
+[node name="Label" type="Label" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_lbl" unique_id=1535772390]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Custom Text"
 
-[node name="custom_text_edit" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="custom_text_edit" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=239183380]
 layout_mode = 2
 alignment = 1
 
-[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit"]
+[node name="Container2" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit" unique_id=1979322617]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="TextEdit" type="TextEdit" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit"]
+[node name="TextEdit" type="TextEdit" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit" unique_id=1126364316]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -317,16 +317,16 @@ scroll_smooth = true
 caret_blink = true
 caret_blink_interval = 0.4
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/custom_text_edit" unique_id=1419291559]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="HSeparator4" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1245188067]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("2_fao48")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/ScrollContainer/VBoxContainer" unique_id=1940727357]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -334,7 +334,7 @@ size_flags_vertical = 10
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="close_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="close_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1494853649]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -342,7 +342,7 @@ size_flags_vertical = 0
 theme = ExtResource("2_fao48")
 text = "Close"
 
-[node name="save_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="save_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=221604627]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -350,7 +350,7 @@ size_flags_vertical = 0
 theme = ExtResource("2_fao48")
 text = "Save"
 
-[node name="reset_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="reset_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1570971106]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -358,11 +358,11 @@ size_flags_vertical = 0
 theme = ExtResource("2_fao48")
 text = "Reset"
 
-[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Container" type="Container" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=761778716]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="reset_to_original_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="reset_to_original_btn" type="Button" parent="NinePatchRect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=90424943]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 4
