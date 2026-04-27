@@ -38,6 +38,8 @@ func split_to_words(text: String) -> Array:
 	return result
 
 func classify_by_length(words: Array):
+	
+	
 	short_words.clear()
 	medium_words.clear()
 	long_words.clear()
@@ -49,6 +51,29 @@ func classify_by_length(words: Array):
 			medium_words.append(word)
 		else:
 			long_words.append(word)
+			
+		if difficulty_type == 0: 
+			if word.length() <= 5:
+				short_words.append(word)
+			#elif word.length() <= 7:
+			#	medium_words.append(word)
+			#else:
+			#	long_words.append(word)
+		elif difficulty_type == 1: 
+			if word.length() <= 7 and word.length() >= 3:
+				short_words.append(word)
+			#elif word.length() <= 9:
+			#	medium_words.append(word)
+			#else:
+			#	long_words.append(word)
+		elif difficulty_type == 2: 
+			if word.length() <= 15 and word.length() >= 5:
+				short_words.append(word)
+			#elif word.length() <= 9:
+			#	medium_words.append(word)
+			#else:
+			#	long_words.append(word)
+		
 
 
 func get_prompt() -> String: 
