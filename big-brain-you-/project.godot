@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Big Brain You"
 run/main_scene="uid://b3mgb25lqt5xx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+run/max_fps=240
 config/icon="res://icon.svg"
 
 [audio]
@@ -40,6 +41,7 @@ player=""
 
 [gui]
 
+theme/default_font_multichannel_signed_distance_field=true
 theme/custom="uid://b8e86kcwqpc2o"
 theme/custom_font="uid://rxgdbi7p0iy7"
 
